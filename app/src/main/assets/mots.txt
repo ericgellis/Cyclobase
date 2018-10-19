@@ -1,0 +1,4 @@
+obstacle
+carrefour dangereux
+interruption
+mauvais état

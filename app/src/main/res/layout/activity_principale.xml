@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobithink.velo.carbon.driving.DrivingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:id="@+id/eventsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/finishTrip"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/eventsLayout"
+            android:layout_centerHorizontal="true"
+            android:background="@color/orange_button_event"
+            android:text="@string/finir_le_trajet"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/Trip"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/eventsLayout"
+            android:layout_centerHorizontal="true"
+            android:background="@color/orange_button_event"
+            android:text="@string/finir_le_trajet"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/finishTrip"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/eventsLayout"
+            android:layout_centerHorizontal="true"
+            android:background="@color/orange_button_event"
+            android:text="@string/finir_le_trajet"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>-->
+<!---->

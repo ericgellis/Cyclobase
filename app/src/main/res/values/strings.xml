@@ -1,0 +1,245 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Mobithink velo</string>
+
+    <!-- API Key -->
+    <string name="google_maps_api">AIzaSyDNRm3UOtZ9_o-Y2Tpoq5w2S8aj3P2K7eo</string>
+
+    <!-- SplashScreenActivity-->
+    <string name="fixed_text">Relevés des données cyclables</string>
+    <string name="analyze">Analyser</string>
+    <string name="consult">Consulter</string>
+    <string name="server_status">Server status : </string>
+    <string name="is_up">Is Up</string>
+    <string name="is_down">Is Down</string>
+    <string name="maj_parametres">Les paramêtres ont été modifiés avec succès</string>
+    <string name="version_string">Version :</string>
+    <string name="trajet_sauvegarde">La saisie du trajet a été sauvegardée"</string>
+    <string name="trajet_anule">La saisie du trajet a été annulée</string>
+
+    <!--DrivingActivity-->
+    <string name="permission_is_needed">Location Permision</string>
+    <string name="why_permission_is_needed">Nous avons besoin de conaitre la localitation du dispositif</string>
+    <string name="ok_button">OK</string>
+    <string name="cancel_button">Annuler</string>
+    <string name="action_generique">generique</string>
+    <string name="event_type_amenagement">Amenagement</string>
+    <string name="evenement_cree">Evenement Créé</string>
+
+    <!--DrivingActivity Layout-->
+    <string name="piste">Piste</string>
+    <string name="bande">Bande</string>
+    <string name="voie_verte">Voie verte</string>
+    <string name="contresens_cyclable">Contresens cyclable</string>
+    <string name="voie_partagée">Voie partagée</string>
+    <string name="couloir_Bus">Couloir Bus</string>
+
+
+    <!--Evenements-->
+    <string name="voice_memo">voice memo</string>
+    <string name="probleme">Problemes</string>
+    <string-array name="problemes_array">
+        <item>obstacle</item>
+        <item>carrefour dangereux</item>
+        <item>interruption</item>
+        <item>mauvais état</item>
+    </string-array>
+
+    <string name="amenagement">Amenagement</string>
+    <string-array name="amenagement_array">
+        <item>piste</item>
+        <item>bande</item>
+        <item>voie verte</item>
+        <item>contresens cyclable</item>
+        <item>voie partagée</item>
+        <item>couloir Bus</item>
+    </string-array>
+
+    <string name="ressenti">Ressenti</string>
+    <string-array name="ressenti_array">
+        <item>comfortable</item>
+        <item>en confiance</item>
+        <item>déconcerté</item>
+        <item>agacé</item>
+        <item>anxieux</item>
+        <item>paniqué</item>
+    </string-array>
+
+
+    <!--choice_line_from_analyze-->
+    <string name="cityName">Ville</string>
+    <string name="lineName">Ligne</string>
+    <string name="directionName">Direction</string>
+    <string name="vehicleCapacity">Capacité du véhicule</string>
+    <string name="start">Démarrer</string>
+
+    <!--new_line-->
+    <string name="departureStation" tools:ignore="UnusedResources">Station de départ</string>
+    <string name="addStation">Ajouter une station</string>
+    <string name="interurban">Interurbain</string>
+    <string name="create">Créer</string>
+
+    <!--Driving-->
+    <string name="nextStation">Prochaine station</string>
+    <string name="event" tools:ignore="UnusedResources">Evènement</string>
+    <string name="course">Parcours :</string>
+    <string name="section">Tronçon :</string>
+    <string name="dir">dir.</string>
+    <string name="indriving">En section courante</string>
+    <string name="in_crossroad">Au carrefour</string>
+    <string name="Terminus">Terminus</string>
+    <string name="current_speed">%1$s km/h</string>
+
+    <!--nom des boutons d'amenagement layout-->
+    <string name="PISTE">Piste</string>
+    <string name="BANDE">Bande</string>
+    <string name="VOIE_VERTE">Voie verte</string>
+    <string name="CONTRESENS">Contre sens</string>
+    <string name="VOIE_PARTAGEE">Voie partagée</string>
+    <string name="COULOIR_BUS">Couloir Bus</string>
+
+    <!--nom des boutons de RESSENTI Angry layout-->
+    <string name="agace">Agacé</string>
+    <string name="deconcentre">Déconcerté</string>
+    <string name="anxieux">Anxieux</string>
+    <string name="panique">Paniqué</string>
+
+
+    <string-array name="condition_codes_icons">
+        <item>&#xF0BC;</item>
+        <item>&#xF0BC;</item>
+        <item>&#xF0BC;</item>
+        <item>&#xF0BC;</item>
+        <item>&#xF0BC;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF082;</item>
+        <item>&#xF00A;</item>
+        <item>&#xF082;</item>
+        <item>&#xF063;</item>
+        <item>&#xF063;</item>
+        <item>&#xF063;</item>
+        <item>&#xF063;</item>
+        <item>&#xF063;</item>
+        <item>&#xF074;</item>
+        <item>&#xF063;</item>
+        <item>&#xF011;</item>
+        <item>&#xF011;</item>
+        <item>&#xF013;</item>
+        <item>&#xF031;</item>
+        <item>&#xF002;</item>
+        <item>&#xF031;</item>
+        <item>&#xF002;</item>
+        <item>&#xF00D;</item>
+        <item>&#xF00D;</item>
+        <item>&#xF02E;</item>
+        <item>&#xF00D;</item>
+        <item>&#xF065;</item>
+        <item>&#xF00D;</item>
+        <item>&#xF007;</item>
+        <item>&#xF007;</item>
+        <item>&#xF007;</item>
+        <item>&#xF007;</item>
+        <item>&#xF007;</item>
+        <item>&#xF007;</item>
+        <item>&#xF006;</item>
+        <item>&#xF00C;</item>
+        <item>&#xF005;</item>
+        <item>&#xF00A;</item>
+        <item>&#xF005;</item>
+        <item>&#xF07B;</item>
+    </string-array>
+
+    <!--StationActivity-->
+    <string name="boarding">Montée</string>
+    <string name="exit">Descente</string>
+    <string name="cancellation">Annulation</string>
+    <string name="running" tools:ignore="UnusedResources">en cours</string>
+
+    <!--parameters-->
+    <string name="parameters">Paramètres</string>
+    <string name="frequency">Fréquence relevée en roulage (en sec) : </string>
+    <string name="radius">Rayon de couverture des stations (en m) : </string>
+    <string name="cost_production_by_minut"> Coût de production à la minute (en euro/min) : </string>
+    <string name="cost_production_by_kilometer">Coût de production au kilomètre (en euro/km) : </string>
+    <string name="register">Enregistrer</string>
+
+    <!--choice_line_from_consult-->
+    <string name="recorded">Saisie du</string>
+
+    <!-- provision_tab1-->
+    <string name="interstation" tools:ignore="UnusedResources">Interstations</string>
+    <string name="current_performance">Performance actuelle</string>
+    <string name="marge_performance">Marge de performance</string>
+    <string name="saving">Gain :</string>
+
+    <!-- speed_tab2-->
+    <string name="speed">Vitesse</string>
+
+    <!--event_tab3-->
+    <string name="total_trip">Parcours total</string>
+    <string name="event_in_actual_section">Evènement section courante</string>
+    <string name="event_crossroad">Evènement carrefours</string>
+    <string name="event_in_station">Evènement stations</string>
+    <string name="total_trip_time">Temps de parcours total :</string>
+    <string name="average_speed">Vitesse moyenne :</string>
+    <string name="decomposition">Décomposition :</string>
+    <string name="loss_total_time">Perte de temps total : </string>
+    <string name="saving_possible_time">Gain de temps envisageable :</string>
+    <string name="saving_in_euro">Gain en euro : </string>
+    <string name="number_of_events">Nombre d\'évènements :</string>
+    <string name="total_time_events">Temps cumulé des évènements :</string>
+    <string name="load">Poids (% par rapport au temps réel du parcours) :</string>
+    <string name="type_event">Type d\'évènements :</string>
+    <string name="time">Temps :</string>
+    <string name="retranscription_voice_memo">Retranscription mémo vocal : </string>
+    <string name="impact_bus_performance">Impacts sur les performances du bus :</string>
+    <string name="layout_to_favor">Aménagements à privilégier :</string>
+    <string name="in_driving">En roulage </string>
+    <string name="in_station">En station </string>
+    <string name="impact">Impact :</string>
+
+    <!--capacity_tab4-->
+    <string name="capacity">Charge</string>
+    <string name="capacities">Capacité :</string>
+    <string name="max">max :</string>
+    <string name="average">moy :</string>
+    <string name="min">min :</string>
+    <string name="capacityless50">Part du trajet où la charge est inférieure à 50%</string>
+
+    <!--summary-tab5-->
+    <string name="enteringData">Saisi le</string>
+    <string name="speed_in_driving">Vitesse commerciale</string>
+    <string name="time_in_crossroad">Temps passé aux carrefours</string>
+    <string name="time_in_station">Temps passé en stations</string>
+    <string name="indicator_adaptation_capacity">Indicateur d\'adaptation de la capacité</string>
+    <string name="effective_average_interstation">Interstation moyenne effective</string>
+    <string name="indicator_performance_confort_security">Indicateur de performance "confort et sécurité"</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="addcomment">Faire une remarque</string>
+    <string name="finir_le_trajet">Finir le trajet</string>
+    <string name="erreur_commande_vocale">Erreur, Merci d\'essayer au noveau</string>
+    <string name="send_trip">sendTripDto</string>
+    <string name="response_serveur">Response serveur:</string>
+    <string name="evoi_echoue">L\'envoi de données a échoué, veuillez réessayer</string>
+    <string name="evoi_sucsses">L\'envoi de données a été fait correctement</string>
+    <string name="trajer_enregistre">Le trajet été enregistré correctement, vous pouvez l’envoyer ultérieurement.</string>
+    <string name="title_activity_splash2">SplashActivity2</string>
+    <string name="voice_settings">Liste de Commandes Vocales</string>
+    <string name="envoyer_donnes">Envoyer données</string>
+    <string name="label">Label</string>
+    <string name="mots">Mot</string>
+
+
+</resources>

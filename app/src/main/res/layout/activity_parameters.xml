@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:toolbar="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/parametersToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:background="#757575"
+        app:navigationIcon="@mipmap/ic_white_arrow"/>
+
+    <TextView
+        android:id="@+id/frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:layout_marginBottom="@dimen/double_regular_margin"
+        android:layout_below="@+id/parametersToolBar"
+        android:text="@string/frequency"
+        android:textColor="@color/parameters_label_text"/>
+
+    <TextView
+        android:id="@+id/frequencyNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/frequency"
+        android:layout_alignBottom="@+id/frequency"
+        android:layout_marginStart="@dimen/regular_margin"/>
+
+    <SeekBar
+        android:id="@+id/frequency_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/frequency"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:layout_marginBottom="@dimen/double_regular_margin"
+        android:max="100"
+        android:progressTint="@color/mobiThinkBlue"
+        android:thumbTint="@color/mobiThinkBlue"/>
+
+    <TextView
+        android:id="@+id/radius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frequency_seekbar"
+        android:layout_marginTop="@dimen/double_regular_margin"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:layout_marginBottom="@dimen/double_regular_margin"
+        android:text="@string/radius"
+        android:textColor="@color/parameters_label_text"/>
+
+    <TextView
+        android:id="@+id/radiusNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/radius"
+        android:layout_alignBottom="@+id/radius"
+        android:layout_marginStart="@dimen/regular_margin"/>
+
+    <SeekBar
+        android:id="@+id/radius_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/radius"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:max="950"
+        android:progressTint="@color/mobiThinkBlue"
+        android:thumbTint="@color/mobiThinkBlue"/>
+
+    <TextView
+        android:id="@+id/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radius_seekbar"
+        android:layout_marginTop="@dimen/double_regular_margin"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:layout_marginBottom="@dimen/double_regular_margin"
+        android:text="@string/cost_production_by_minut"
+        android:textColor="@color/parameters_label_text"/>
+
+    <TextView
+        android:id="@+id/costNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/cost"
+        android:layout_alignBottom="@+id/cost"
+        android:layout_marginStart="@dimen/regular_margin"/>
+
+    <SeekBar
+        android:id="@+id/cost_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/cost"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:max="950"
+        android:progressTint="@color/mobiThinkBlue"
+        android:thumbTint="@color/mobiThinkBlue"/>
+
+    <TextView
+        android:id="@+id/kilometerCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cost_seekbar"
+        android:layout_marginTop="@dimen/double_regular_margin"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:layout_marginBottom="@dimen/double_regular_margin"
+        android:text="@string/cost_production_by_kilometer"
+        android:textColor="@color/parameters_label_text"/>
+
+    <TextView
+        android:id="@+id/kilometerCostNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/kilometerCost"
+        android:layout_alignBottom="@+id/kilometerCost"
+        android:layout_marginStart="@dimen/regular_margin"/>
+
+    <SeekBar
+        android:id="@+id/kilometer_cost_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/kilometerCost"
+        android:layout_marginStart="@dimen/double_regular_margin"
+        android:max="950"
+        android:progressTint="@color/mobiThinkBlue"
+        android:thumbTint="@color/mobiThinkBlue"/>
+
+    <Button
+        android:id="@+id/register_parameter_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/register"
+        android:textColor="@color/parameters_button"
+        android:background="@color/background_parameters_button"/>
+
+</RelativeLayout>

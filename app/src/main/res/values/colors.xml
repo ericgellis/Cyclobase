@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#00637c</color>
+    <color name="colorPrimaryDark">#003950</color>
+    <color name="colorAccent">#4548ff</color>
+    <color name="trans">#00000000 </color>
+    <!-- Main Page-->
+    <color name="grey">#BDBDBD</color>
+    <color name="mobiThinkBlue">#006680</color>
+    <color name="veryLightGrey">#FAFAFA</color>
+
+    <!--ParametersActivity-->
+    <color name="parameters_label_text">#A9A9A9</color>
+    <color name="parameters_button">#388E3C</color>
+    <color name="background_parameters_button">#FFFFFF</color>
+
+    <!--Driving-->
+    <color name="orange_button_event">#F57C00</color>
+    <color name="color_event_crossroad">#926d27</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightBlue">#2196F3</color>
+    <color name="bleuClair">#71ABFF</color>
+    <color name="black">#000000</color>
+
+    <!--StationActivity-->
+    <color name="green_button">#1B5E20</color>
+    <color name="red_button">#D32F2F</color>
+    <color name="grey_station">#757575</color>
+
+    <!--Parameters-->
+    <color name="parametersToolBar">#757575</color>
+
+    <!--fragment_provision_tab1-->
+    <color name="grey_provision">#555555</color>
+    <color name="circle">#000000</color>
+
+    <!-- fragment_capacity_tab4-->
+    <color name="purple_chart">#715696</color>
+    <color name="orange_chart" tools:ignore="UnusedResources">#FF7F27</color>
+    <color name="green_chart">#A7E0A5</color>
+    <color name="red_chart">#FA7470</color>
+    <color name="grey_capacity">#A9A9A9</color>
+
+    <!--Dark texts on light backgrounds-->
+    <color name="primary_text">#87000000</color>
+
+    <!--Error-->
+    <color name="red_color_error">#ffff0000</color>
+
+    <!--Error-->
+    <color name="server_offline">#ffff0000</color>
+    <color name="server_online">#ff00ff00</color>
+    <color name="layout_button_event">#2E64FE</color>
+    <color name="feeling_button_event">#D358F7</color>
+    <color name="problem_button_event">#FF0000</color>
+</resources>

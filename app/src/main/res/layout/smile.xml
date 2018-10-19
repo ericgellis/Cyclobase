@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_list_incidents"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawa_border"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    >
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="15dp"
+        android:background="@drawable/drawa_border"
+        android:orientation="vertical">
+
+
+        <ImageButton
+            android:id="@+id/like1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like1"
+            android:layout_marginBottom="5dp"/>
+        <ImageButton
+            android:id="@+id/like4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like4"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:background="@drawable/drawa_border"
+        android:padding="15dp">
+        <ImageButton
+            android:id="@+id/like2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like5"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageButton
+            android:id="@+id/like3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like6"
+            />
+
+    </LinearLayout>
+
+    <!--<android.support.text.emoji.widget.EmojiButton
+        android:layout_width="wrap_content"
+        android:layout_height="137dp" />-->
+</LinearLayout>

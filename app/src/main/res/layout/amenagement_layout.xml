@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/trans">
+
+    <Button
+        android:id="@+id/voie_partage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="@string/VOIE_PARTAGEE"
+        android:background="@drawable/border_button"
+        android:textSize="20sp"
+        android:layout_weight="0.4"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="0.6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:background="@color/trans"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/bande"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/BANDE"
+                android:layout_weight="1"
+                android:background="@drawable/border_button"
+                android:textSize="20dp"
+                 />
+
+            <Button
+                android:id="@+id/contresens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/CONTRESENS"
+                android:layout_weight="0.8"
+                android:background="@drawable/border_button"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/couloir_bus"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_button"
+            android:layout_weight="0.5"
+            android:text="@string/COULOIR_BUS"
+            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.45"
+            android:background="@color/trans"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/piste"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_button"
+                android:text="@string/PISTE"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/voie_verte"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border_button"
+                android:layout_weight="0.8"
+                android:text="@string/VOIE_VERTE"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+

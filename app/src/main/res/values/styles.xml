@@ -1,17 +1,35 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@null</item>
     </style>
 
     <!--Error label text style-->
     <style name="MyErrorText" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/red_color_error</item>
         <item name="android:textSize">@dimen/label_text_size</item>
+    </style>
+
+    <style name="FullTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="AppTheme.TransparentTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

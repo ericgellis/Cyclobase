@@ -4,7 +4,7 @@
     <!-- API Key -->
     <string name="google_maps_api">AIzaSyDNRm3UOtZ9_o-Y2Tpoq5w2S8aj3P2K7eo</string>
 
-    <!-- SplashScreenActivity-->
+    <!-- HomeActivity-->
     <string name="fixed_text">Relevés des données cyclables</string>
     <string name="analyze">Analyser</string>
     <string name="consult">Consulter</string>
@@ -12,7 +12,7 @@
     <string name="is_up">Is Up</string>
     <string name="is_down">Is Down</string>
     <string name="maj_parametres">Les paramêtres ont été modifiés avec succès</string>
-    <string name="version_string">Version :</string>
+    <string name="version_string">Version : </string>
     <string name="trajet_sauvegarde">La saisie du trajet a été sauvegardée"</string>
     <string name="trajet_anule">La saisie du trajet a été annulée</string>
 

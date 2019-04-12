@@ -33,7 +33,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.mobithink.velo.carbon.R;
-import com.mobithink.velo.carbon.SplashScreenActivity;
+import com.mobithink.velo.carbon.home.ui.HomeActivity;
 import com.mobithink.velo.carbon.database.model.EventDTO;
 import com.mobithink.velo.carbon.database.model.TripDTO;
 import com.mobithink.velo.carbon.managers.CarbonApplicationManager;
@@ -663,7 +663,7 @@ public class DrivingActivity extends AppCompatActivity {
     private void returnToSplashScreenActivity(int codeEnvoi){
         Bundle bundle = new Bundle();
         bundle.putInt(CODE_ENVOI_TAG,codeEnvoi);
-        Intent intent = new Intent(this, SplashScreenActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtras(bundle);
         this.startActivity(intent);
 

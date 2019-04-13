@@ -240,6 +240,7 @@
     <string name="envoyer_donnes">Envoyer données</string>
     <string name="label">Label</string>
     <string name="mots">Mot</string>
+    <string name="cancel">Annuler</string>
 
 
 </resources>

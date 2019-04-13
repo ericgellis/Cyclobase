@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#003950</color>
     <color name="colorAccent">#4548ff</color>
     <color name="trans">#00000000 </color>
+    <color name="dialog_overlay_transparency">#88000000</color>
+
     <!-- Main Page-->
     <color name="grey">#BDBDBD</color>
     <color name="mobiThinkBlue">#006680</color>

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mobithink.velo.carbon.R;
+import com.mobithink.velo.carbon.core.ui.AbstractActivity;
 import com.mobithink.velo.carbon.home.ui.HomeActivity;
 import com.mobithink.velo.carbon.managers.RetrofitManager;
 import com.mobithink.velo.carbon.webservices.TechnicalService;
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends AbstractActivity {
 
     private int serverCallsKO=0;
     private final int SERVER_CALLS_LIMITE=5;
@@ -41,6 +42,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
+
+        setTranslucideStatusBar();
 
         ButterKnife.bind(this);
 

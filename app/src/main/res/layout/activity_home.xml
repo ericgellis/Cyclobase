@@ -9,19 +9,25 @@
     tools:context=".home.ui.HomeActivity"
     android:id="@+id/splashactivity_rootview2">
 
-    <!--<android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>-->
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:paddingTop="@dimen/double_regular_margin"
+       android:orientation="horizontal"
+       android:layout_alignParentEnd="true"
+       android:layout_marginEnd="@dimen/margin_xl">
+       <ImageView
+           android:layout_width="25dp"
+           android:layout_height="25dp"
+           android:layout_marginEnd="@dimen/double_regular_margin"
+           android:src="@drawable/ic_settings"
+           android:tint="@color/colorPrimary"/>
+       <ImageView
+           android:layout_width="25dp"
+           android:layout_height="25dp"
+           android:src="@drawable/ic_info"
+           android:tint="@color/colorPrimary"/>
+   </LinearLayout>
 
     <ImageView
     android:id="@+id/mobithinkLogo"

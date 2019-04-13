@@ -241,6 +241,7 @@
     <string name="label">Label</string>
     <string name="mots">Mot</string>
     <string name="cancel">Annuler</string>
+    <string name="vocal_action_list_title">Liste des commandes vocales</string>
 
 
 </resources>

@@ -44,6 +44,7 @@ public class SplashScreenActivity extends AbstractActivity {
         setContentView(R.layout.activity_splashscreen);
 
         setTranslucideStatusBar();
+        setDarkStatusIcon();
 
         ButterKnife.bind(this);
 

@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
 import com.mobithink.velo.carbon.R;
+import com.mobithink.velo.carbon.core.ui.AbstractActivity;
 import com.mobithink.velo.carbon.database.model.TripDTO;
 import com.mobithink.velo.carbon.driving.DrivingActivity;
 import com.mobithink.velo.carbon.managers.CarbonApplicationManager;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,28 +51,29 @@ import static com.mobithink.velo.carbon.driving.DrivingActivity.ENVOI_OK;
  * MobiThink Velo
  * Activité principal.
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AbstractActivity {
 
     private static final int CHANGE_PARAMETER_ACTION = 3;
     private static final int ANALYSE_LINE_ACTION = 2;
     private static final int MY_REQUEST_CODE = 0;
 
-    private MotsRecyclerViewAdapter mRecyclerViewAdapter;
-    private boolean isInfoWindowVisible=false;
+    private static final String VOCAL_COMAND_LIST_DIALOG_FRAGMENT = "VOCAL_COMAND_LIST_DIALOG_FRAGMENT";
 
     @BindView(R.id.splashactivity_rootview2)
     View mRootView;
-    @BindView(R.id.analyzeButton)
-    Button mAnalyzeButton;
+
     @BindView(R.id.mobithinkLogo)
     ImageView mMobiThinkLogo;
 
-    /*@BindView(R.id.info_window_container)
-    View infoWindow;*/
-    /*@BindView(R.id.close_fab)
-    FloatingActionButton closeFAB;*/
+    @OnClick(R.id.analyzeButton)
+    public void onClickAnalyseButton(){
+        launchAnalyse();
+    }
 
-    Toolbar toolbar;
+    @OnClick(R.id.info_image_button)
+    public void onClickInfoButton(){
+        showInfoWindow();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,118 +83,24 @@ public class HomeActivity extends AppCompatActivity {
         //ButterKnife bind des composants de la vue
         ButterKnife.bind(this);
 
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
+        setTranslucideStatusBar();
+        setDarkStatusIcon();
 
         Fabric.with(this, new Crashlytics());
 
         //On fixe l'orientation de la vue
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        setUpButtons();
-        showInfoWindow(false);
-
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, MY_REQUEST_CODE);
         }
-
-        //SetUp the RecyclerView
-        /*RecyclerView mRecyclerView = findViewById(R.id.mots_recycler_view);
-        // use a linear layout manager
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        // specify an adapter
-        mRecyclerViewAdapter = new MotsRecyclerViewAdapter(this);
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);*/
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return true;
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    private void showInfoWindow() {
+        new VocalComandListDialogFragment()
+                .show(getSupportFragmentManager(), VOCAL_COMAND_LIST_DIALOG_FRAGMENT);
 
-        switch (item.getItemId()){
-            case R.id.general_settings:
-                launchParametersActivity();
-                return true;
-            case R.id.voice_settings:
-                showInfoWindow(true);
-                return true;
-            /*case R.id.upload_trips:
-                return true;*/
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void showInfoWindow(boolean b) {
-        if (b){
-            mRecyclerViewAdapter.mDataSet(getListMots());
-            //infoWindow.setVisibility(View.VISIBLE);
-            //infoWindow.setClickable(true);
-            //closeFAB.show();
-            isInfoWindowVisible=true;
-        }else {
-
-            //infoWindow.setVisibility(View.GONE);
-            //infoWindow.setClickable(false);
-            //closeFAB.hide();
-            isInfoWindowVisible=false;
-        }
-
-    }
-
-    /**
-     * Alimentation da la liste de mots enregistre pour la commande vocale
-     * @return Liste avec les labels inclus
-     */
-    private ArrayList<String> getListMots() {
-        ArrayList<String>list= new ArrayList<>();
-        String[] array;
-        list.add(getString(R.string.probleme));
-        //Récupération de la liste d’évènements prédéfinis du type probeleme
-        array = getResources().getStringArray(R.array.problemes_array);
-        for (String s : array){
-            list.add(s);
-        }
-        list.add(getString(R.string.amenagement));
-        //Récupération de la liste d’évènements prédéfinis du type amenagement
-        array = getResources().getStringArray(R.array.amenagement_array);
-        for (String s : array){
-            list.add(s);
-        }
-        list.add(getString(R.string.ressenti));
-        //Récupération de la liste d’évènements prédéfinis du type ressenti
-        array = getResources().getStringArray(R.array.ressenti_array);
-        for (String s : array){
-            list.add(s);
-        }
-
-        return list;
-    }
-
-    /**
-     * Méthode pour paramétrer les boutons et leur Listeners
-     */
-    private void setUpButtons(){
-        mAnalyzeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchAnalyse();
-            }
-        });
-
-        /*closeFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showInfoWindow(false);
-            }
-        });*/
     }
 
 
@@ -273,17 +182,5 @@ public class HomeActivity extends AppCompatActivity {
 
         this.finishAffinity();
 
-
-        //Control d’affichage de infoView afin d’éviter sortir de la app si le user clique sur le bouton back.
-     /*if (isInfoWindowVisible){
-         showInfoWindow(false);
-     }else{
-         Intent i=new Intent(this, HomeActivity.class);
-         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-         finish();
-        }
-
-    }*/
     }
 }

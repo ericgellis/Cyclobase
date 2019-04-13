@@ -13,10 +13,10 @@ import butterknife.ButterKnife;
 
 
 public class EntryViewHolder extends RecyclerView.ViewHolder {
+
     @BindView(R.id.mot_rv_tv)
     TextView textView;
-    @BindView(R.id.division_line)
-    ImageView line;
+
 
     public EntryViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -31,11 +31,4 @@ public class EntryViewHolder extends RecyclerView.ViewHolder {
         this.textView = textView;
     }
 
-    public ImageView getLine() {
-        return line;
-    }
-
-    public void setLine(ImageView line) {
-        this.line = line;
-    }
 }

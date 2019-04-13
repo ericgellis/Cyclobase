@@ -33,6 +33,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.mobithink.velo.carbon.R;
+import com.mobithink.velo.carbon.core.ui.AbstractActivity;
 import com.mobithink.velo.carbon.home.ui.HomeActivity;
 import com.mobithink.velo.carbon.database.model.EventDTO;
 import com.mobithink.velo.carbon.database.model.TripDTO;
@@ -54,7 +55,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class DrivingActivity extends AppCompatActivity {
+public class DrivingActivity extends AbstractActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 001;
     private static final int SPEACH_RECOGNITION_TAG =100;
@@ -435,7 +436,7 @@ public class DrivingActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // permets reveiller le serveur, si Ok on envoi le TRIP
+                showProgressDialog();
                 checkServerStatus();
                 dialog.cancel();
             }
@@ -477,6 +478,7 @@ public class DrivingActivity extends AppCompatActivity {
                         if (serverCallsKO<SERVER_CALLS_LIMITE){
                             checkServerStatus();
                         }else {
+                            hideProgressDialog();
                             returnToSplashScreenActivity(ENVOI_KO);
                         }
                         break;
@@ -503,11 +505,13 @@ public class DrivingActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()) {
                     case 201:
+                        hideProgressDialog();
                         setResult(RESULT_OK);
                         DatabaseManager.getInstance().updateStatus(tripId,true);
                         returnToSplashScreenActivity(ENVOI_OK);
                         break;
                     default:
+                        hideProgressDialog();
                         Log.e(getString(R.string.send_trip),getString(R.string.response_serveur)+response.code());
                         DatabaseManager.getInstance().updateStatus(tripId,false);
                         returnToSplashScreenActivity(ENVOI_KO);

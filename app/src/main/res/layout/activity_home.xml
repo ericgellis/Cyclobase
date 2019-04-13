@@ -12,17 +12,20 @@
    <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/margin_xl"
        android:paddingTop="@dimen/double_regular_margin"
        android:orientation="horizontal"
        android:layout_alignParentEnd="true"
        android:layout_marginEnd="@dimen/margin_xl">
-       <ImageView
+       <!--<ImageView
+           android:id="@+id/setting_image_button"
            android:layout_width="25dp"
            android:layout_height="25dp"
            android:layout_marginEnd="@dimen/double_regular_margin"
            android:src="@drawable/ic_settings"
-           android:tint="@color/colorPrimary"/>
+           android:tint="@color/colorPrimary"/>-->
        <ImageView
+           android:id="@+id/info_image_button"
            android:layout_width="25dp"
            android:layout_height="25dp"
            android:src="@drawable/ic_info"
@@ -63,7 +66,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_xxxlarge"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:text="@string/analyze"

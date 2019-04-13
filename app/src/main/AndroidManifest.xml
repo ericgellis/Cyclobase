@@ -42,7 +42,8 @@
 
         <activity
             android:name=".splashscreen.ui.SplashScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullTranslucent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -8,6 +8,7 @@ android {
         applicationId "com.mobithink.velo.carbon"
         minSdkVersion 23
         targetSdkVersion 28
+        resValue "string", "app_name", "Vélo Relèv"
         versionCode 3
         versionName "0.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

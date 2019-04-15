@@ -1,5 +1,6 @@
 package com.mobithink.velo.carbon.starter.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.google.android.material.tabs.TabLayout;
@@ -10,6 +11,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.mobithink.velo.carbon.R;
 import com.mobithink.velo.carbon.core.ui.AbstractActivity;
+import com.mobithink.velo.carbon.home.ui.HomeActivity;
+import com.mobithink.velo.carbon.splashscreen.ui.SplashScreenActivity;
 import com.mobithink.velo.carbon.starter.callback.StarterCallback;
 
 import java.util.ArrayList;
@@ -45,9 +48,14 @@ public class StarterActivity extends AbstractActivity implements StarterCallback
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SignInFragment(), getString(R.string.signin));
-        adapter.addFragment(new CardFidFragment(), getString(R.string.signup));
+        adapter.addFragment(new SignInFragment().setCallBack(this), getString(R.string.signin));
+        adapter.addFragment(new SignUpFragment(), getString(R.string.signup));
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onAuthCompleted() {
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
 

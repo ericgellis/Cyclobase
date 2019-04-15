@@ -5,20 +5,12 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
 import com.mobithink.velo.carbon.R;
@@ -27,20 +19,12 @@ import com.mobithink.velo.carbon.database.model.TripDTO;
 import com.mobithink.velo.carbon.driving.DrivingActivity;
 import com.mobithink.velo.carbon.managers.CarbonApplicationManager;
 import com.mobithink.velo.carbon.managers.DatabaseManager;
-import com.mobithink.velo.carbon.managers.RetrofitManager;
 import com.mobithink.velo.carbon.preparation.ParametersActivity;
-import com.mobithink.velo.carbon.recyclerviewutils.MotsRecyclerViewAdapter;
-import com.mobithink.velo.carbon.webservices.TechnicalService;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.fabric.sdk.android.Fabric;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.mobithink.velo.carbon.driving.DrivingActivity.CODE_ENVOI_TAG;
 import static com.mobithink.velo.carbon.driving.DrivingActivity.ENVOI_DECLINE;

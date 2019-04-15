@@ -11,7 +11,7 @@
            android:orientation="vertical"
            android:layout_weight="1">
 
-              <android.support.text.emoji.widget.EmojiButton
+              <androidx.emoji.widget.EmojiButton
                   android:id="@+id/panique"
                   android:textSize="@dimen/emoji_dim"
                   android:layout_width="match_parent"
@@ -31,7 +31,7 @@
            android:layout_height="wrap_content"
            android:orientation="vertical"
            android:layout_weight="1">
-              <android.support.text.emoji.widget.EmojiButton
+              <androidx.emoji.widget.EmojiButton
                   android:id="@+id/anxieux"
                   android:textSize="@dimen/emoji_dim"
                   android:layout_width="match_parent"
@@ -49,7 +49,7 @@
            android:layout_height="wrap_content"
            android:orientation="vertical"
            android:layout_weight="1">
-              <android.support.text.emoji.widget.EmojiButton
+              <androidx.emoji.widget.EmojiButton
                   android:id="@+id/agace"
                   android:textSize="@dimen/emoji_dim"
                   android:layout_width="match_parent"
@@ -67,7 +67,7 @@
            android:layout_height="wrap_content"
            android:orientation="vertical"
            android:layout_weight="1">
-              <android.support.text.emoji.widget.EmojiButton
+              <androidx.emoji.widget.EmojiButton
                   android:id="@+id/deconcerte"
                   android:textSize="@dimen/emoji_dim"
                   android:autoSizeMaxTextSize="@dimen/emoji_dim"

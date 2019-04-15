@@ -24,7 +24,7 @@
         android:textSize="16sp"
         android:textStyle="bold"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mots_recycler_view"
         android:layout_width="250dp"
         android:layout_height="400dp" />

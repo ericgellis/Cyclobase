@@ -65,8 +65,11 @@
         <activity
             android:name=".home.ui.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullTranslucent">
-        </activity>
+            android:theme="@style/FullTranslucent"/>
+        <activity
+            android:name=".starter.ui.StarterActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullTranslucent"/>
         <activity
             android:name=".preparation.ParametersActivity" />
         <activity
@@ -93,7 +96,7 @@
             android:label="Carbon Location Service" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">

@@ -4,12 +4,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +14,7 @@ import com.mobithink.velo.carbon.R;
 import com.mobithink.velo.carbon.core.ui.AbstractActivity;
 import com.mobithink.velo.carbon.home.ui.HomeActivity;
 import com.mobithink.velo.carbon.managers.RetrofitManager;
+import com.mobithink.velo.carbon.starter.ui.StarterActivity;
 import com.mobithink.velo.carbon.webservices.TechnicalService;
 
 import butterknife.BindView;
@@ -117,6 +115,6 @@ public class SplashScreenActivity extends AbstractActivity {
     }
 
     private void startApplicationNormally() {
-        startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+        startActivity(new Intent(SplashScreenActivity.this, StarterActivity.class));
     }
 }

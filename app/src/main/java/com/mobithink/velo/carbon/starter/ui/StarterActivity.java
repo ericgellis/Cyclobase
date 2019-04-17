@@ -1,35 +1,84 @@
 package com.mobithink.velo.carbon.starter.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+
+import com.google.android.material.textfield.TextInputLayout;
 import com.mobithink.velo.carbon.R;
 import com.mobithink.velo.carbon.core.ui.AbstractActivity;
 import com.mobithink.velo.carbon.home.ui.HomeActivity;
-import com.mobithink.velo.carbon.splashscreen.ui.SplashScreenActivity;
-import com.mobithink.velo.carbon.starter.callback.StarterCallback;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class StarterActivity extends AbstractActivity implements StarterCallback {
+public class StarterActivity extends AbstractActivity  {
 
-    public static final String EMAIL_CONFIRMED = "EMAIL_CONFIRMED";
+    private static final int VIBRATION_DURATION = 120;
 
-    @BindView(R.id.tabLayout)
-    TabLayout tabLayout;
+    private static final int ERROR_EMPTY_LOGIN = 1;
+    private static final int ERROR_EMPTY_PASSWORD = 2;
+    private static final int NO_ERROR = 0;
 
-    @BindView(R.id.viewpager)
-    ViewPager viewPager;
+    @BindView(R.id.password_textinputlayout)
+    TextInputLayout passwordTextInputLayout;
+
+    @BindView(R.id.login_edittext)
+    EditText loginEditText;
+
+    @BindView(R.id.password_edittext)
+    EditText passwordEditText;
+
+    @OnClick(R.id.validate_button)
+    public void onClicOnValidateButton(){
+
+        clearHighlightErrors();
+
+        int error = controlField();
+
+        if (error == NO_ERROR) {
+            signIn();
+        } else {
+
+            Vibrator vibrator = (Vibrator) Objects.requireNonNull(this).getSystemService(Context.VIBRATOR_SERVICE);
+
+            if (vibrator != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(VIBRATION_DURATION, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    vibrator.vibrate(VIBRATION_DURATION);
+                }
+            }
+            highlightError(error);
+        }
+    }
+
+    private void signIn() {
+
+        showProgressDialog();
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProgressDialog();
+                        startActivity(new Intent(StarterActivity.this, HomeActivity.class));
+                    }
+                    }, 1500);
+
+        //Todo fake
+    }
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,53 +88,36 @@ public class StarterActivity extends AbstractActivity implements StarterCallback
         ButterKnife.bind(this);
         setDarkStatusIcon();
 
-        setupViewPager(viewPager);
-
-        tabLayout.setupWithViewPager(viewPager);
-
     }
 
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SignInFragment().setCallBack(this), getString(R.string.signin));
-        adapter.addFragment(new SignUpFragment(), getString(R.string.signup));
-        viewPager.setAdapter(adapter);
+    private void clearHighlightErrors() {
+        loginEditText.setError(null);
+        passwordEditText.setError(null);
     }
 
-    @Override
-    public void onAuthCompleted() {
-        startActivity(new Intent(this, HomeActivity.class));
+    private void highlightError(int errorCode) {
+        switch (errorCode) {
+            case ERROR_EMPTY_LOGIN:
+                loginEditText.setError(getString(R.string.mandatory_field_message));
+                break;
+            case ERROR_EMPTY_PASSWORD:
+                passwordEditText.setError(getString(R.string.mandatory_field_message));
+                break;
+        }
     }
 
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
+    private int controlField() {
+        if (loginEditText.getText().length() == 0) {
+            return ERROR_EMPTY_LOGIN;
         }
 
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+        if (passwordEditText.getText().length() == 0) {
+            return ERROR_EMPTY_PASSWORD;
         }
 
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
+        return NO_ERROR;
 
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
     }
 
     @Override

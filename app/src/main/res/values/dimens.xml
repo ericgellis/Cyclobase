@@ -26,8 +26,10 @@
 
     <!-- Button -->
     <dimen name="button_height">60dp</dimen>
-    <dimen name="button_radius">5dp</dimen>
+    <dimen name="button_radius">12dp</dimen>
     <dimen name="button_text_size">16sp</dimen>
+    <dimen name="button_min_width">180dp</dimen>
+
 
 
 

@@ -62,8 +62,11 @@
     <Button
         android:id="@+id/analyzeButton"
         style="@style/FullButtonStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:drawableStart="@drawable/ic_start_navigation"
+        android:drawableTint="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/margin_xxxlarge"
         android:text="@string/analyze" />

@@ -252,6 +252,9 @@
     <string name="signup_description">Saisissez les identifiants qui vous permettront de vous authentifier.</string>
     <string name="password_not_secured_message">Le mot de passe doit contenir au moins 6 caractères</string>
     <string name="hint_login">Identifiant</string>
+    <string name="start_time">Départ :</string>
+    <string name="session">Session :</string>
+    <string name="events">Evénements :</string>
 
 
 </resources>

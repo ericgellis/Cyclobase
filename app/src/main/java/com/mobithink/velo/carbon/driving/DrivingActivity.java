@@ -22,7 +22,9 @@ import androidx.core.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -45,7 +47,10 @@ import com.mobithink.velo.carbon.utils.CustomPopup;
 import com.mobithink.velo.carbon.webservices.TechnicalService;
 import com.mobithink.velo.carbon.webservices.TripService;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -83,11 +88,8 @@ public class DrivingActivity extends AbstractActivity {
     private LocationCallback mLocationCallback;
     private Location mLocation = null;
 
+    int event = 0;
 
-    @BindView(R.id.moins)
-    ImageButton moinsIb;
-    @BindView(R.id.plus)
-    ImageButton plusIb;
     @BindView(R.id.finish_trip)
     ImageButton finishTripIb;
     @BindView(R.id.voie_partage)
@@ -104,6 +106,14 @@ public class DrivingActivity extends AbstractActivity {
     Button voieVerte;
     @BindView(R.id.vocal)
     ImageButton vocalBt;
+
+    @BindView(R.id.simpleChronometer)
+    Chronometer chronometer;
+    @BindView(R.id.start_textview)
+    TextView starttextView;
+    @BindView(R.id.event_number_textview)
+    TextView eventNumbertextView;
+
     CustomPopup customPopup;
 
 
@@ -114,6 +124,12 @@ public class DrivingActivity extends AbstractActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_driving);
         ButterKnife.bind(this);
+
+        chronometer.start();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH'h'mm");
+
+        starttextView.setText(sdf.format(Calendar.getInstance().getTime()));
 
         tripId=CarbonApplicationManager.getInstance().getCurrentTripId();
 
@@ -228,27 +244,13 @@ public class DrivingActivity extends AbstractActivity {
         finishTripIb.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                chronometer.stop();
                 endTrip();
                 return true;
             }
         });
 
-
-        moinsIb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customPopupButonSetUp();
-            }
-        });
-
-        plusIb.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return false;
-            }
-        });
     }
-
     /**
      * Creation du menu emergent pour afficher les emojis
      */
@@ -398,6 +400,10 @@ public class DrivingActivity extends AbstractActivity {
         eventDTO.setName(eventName);
         eventDTO.setEventType(eventType);
         eventDTO.setStartTime(System.currentTimeMillis());
+
+        event++;
+        eventNumbertextView.setText(String.valueOf(event));
+
         if (mLocation != null) {
             eventDTO.setGpsLat(mLocation.getLatitude());
             eventDTO.setGpsLong(mLocation.getLongitude());
@@ -552,7 +558,6 @@ public class DrivingActivity extends AbstractActivity {
             ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             String commandeVocale=result.get(0);
             getLastKnownLocation();
-
             if (listeProblemesEvenements.contains(commandeVocale.toLowerCase())){
                 //si c'est une action prédéfini du type probeleme
                 createEvent(commandeVocale,

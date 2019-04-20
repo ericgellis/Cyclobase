@@ -15,7 +15,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:scaleType="centerInside"
-        android:src="@drawable/mobithink_logo" />
+        android:src="@drawable/ic_withname" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/TextInputLayout"

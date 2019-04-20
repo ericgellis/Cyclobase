@@ -10,24 +10,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true">
-    <ImageView
-        android:id="@+id/mobithinkLogo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="centerInside"
-        android:src="@drawable/mobithink_logo" />
 
-    <ImageView
-        android:id="@+id/progress_wheel"
-        android:layout_height="60dp"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:tint="@color/colorPrimary"
-        android:src="@drawable/ic_progress_wheel" />
+        <ImageView
+            android:id="@+id/mobithinkLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_withname" />
 
+        <ImageView
+            android:id="@+id/progress_wheel"
+            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:tint="@color/colorPrimary"
+            android:src="@drawable/ic_progress_wheel" />
     </LinearLayout>
 
     <TextView
@@ -37,7 +37,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:textSize="14sp"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

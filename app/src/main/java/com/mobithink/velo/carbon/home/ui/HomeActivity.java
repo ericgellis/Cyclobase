@@ -126,40 +126,19 @@ public class HomeActivity extends AbstractActivity {
             case ANALYSE_LINE_ACTION:
                 if (resultCode == Activity.RESULT_OK) {
                     if (data.getExtras()!=null && data.hasExtra(CODE_ENVOI_TAG)){
-                        controlMessageAfficher(data.getIntExtra(CODE_ENVOI_TAG,ENVOI_KO));
+                        showSuccessDialog(getString(R.string.trajet_sauvegarde));
                     }else {
-                        controlMessageAfficher(ENVOI_KO);
+                        showError(getString(R.string.error_occurred));
                     }
                 }
                 if (resultCode == Activity.RESULT_CANCELED) {
-                    Snackbar.make(mRootView,R.string.trajet_anule , Snackbar.LENGTH_LONG).show();
+                    showError(getString(R.string.trajet_anule));
                 }
                 break;
         }
     }
 
-    /**
-     * Selection de messager a aficher a l'utilisateur suite a la completition du trajet
-     * @param codeEnvoi Code d'envoi proventant du Driving Activity
-     */
-    private void controlMessageAfficher(int codeEnvoi){
-        String message;
-        switch (codeEnvoi){
-            case ENVOI_KO:
-                message=getString(R.string.evoi_echoue);
-            break;
-            case ENVOI_OK:
-                message=getString(R.string.evoi_echoue);
-                break;
-            case ENVOI_DECLINE:
-                message=getString(R.string.evoi_echoue);
-                break;
-             default:
-                 message=getString(R.string.evoi_echoue);
 
-        }
-        Snackbar.make(mRootView,message, Snackbar.LENGTH_LONG).show();
-    }
 
     @Override
     public void onBackPressed() {

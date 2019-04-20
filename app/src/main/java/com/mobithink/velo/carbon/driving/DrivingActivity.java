@@ -1,6 +1,7 @@
 package com.mobithink.velo.carbon.driving;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -670,11 +671,15 @@ public class DrivingActivity extends AbstractActivity {
      * @param codeEnvoi int pour notifier quel message afficher a l'utilisateur dans l'activite princiaple
      */
     private void returnToSplashScreenActivity(int codeEnvoi){
+
+
+        Intent returnIntent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putInt(CODE_ENVOI_TAG,codeEnvoi);
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtras(bundle);
-        this.startActivity(intent);
+        returnIntent.putExtras(bundle);
+
+        setResult(Activity.RESULT_OK,returnIntent);
+        finish();
 
     }
 }

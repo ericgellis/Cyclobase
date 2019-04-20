@@ -12,7 +12,7 @@
     <string name="is_down">Is Down</string>
     <string name="maj_parametres">Les paramêtres ont été modifiés avec succès</string>
     <string name="version_string">Version : </string>
-    <string name="trajet_sauvegarde">La saisie du trajet a été sauvegardée"</string>
+    <string name="trajet_sauvegarde">La saisie du trajet a été sauvegardée</string>
     <string name="trajet_anule">La saisie du trajet a été annulée</string>
 
     <!--DrivingActivity-->

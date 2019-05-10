@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import androidx.annotation.NonNull;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.emoji.text.EmojiCompat;
 import androidx.emoji.bundled.BundledEmojiCompatConfig;
@@ -22,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
@@ -37,7 +40,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.mobithink.velo.carbon.R;
 import com.mobithink.velo.carbon.core.ui.AbstractActivity;
-import com.mobithink.velo.carbon.home.ui.HomeActivity;
 import com.mobithink.velo.carbon.database.model.EventDTO;
 import com.mobithink.velo.carbon.database.model.TripDTO;
 import com.mobithink.velo.carbon.managers.CarbonApplicationManager;
@@ -51,11 +53,11 @@ import com.mobithink.velo.carbon.webservices.TripService;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -74,6 +76,8 @@ public class DrivingActivity extends AbstractActivity {
 
     private int serverCallsKO=0;
     private final int SERVER_CALLS_LIMITE=5;
+
+    private boolean isFabEmotExtended = false;
 
     private View mRootView;
 
@@ -115,7 +119,69 @@ public class DrivingActivity extends AbstractActivity {
     @BindView(R.id.event_number_textview)
     TextView eventNumbertextView;
 
+    @BindView(R.id.emot_fab)
+    FloatingActionButton emotFab;
+    @BindView(R.id.fab_emot1)
+    FloatingActionButton fab1;
+    @BindView(R.id.fab_emot2)
+    FloatingActionButton fab2;
+    @BindView(R.id.fab_emot3)
+    FloatingActionButton fab3;
+
+    private void animateFab() {
+        if(isFabEmotExtended){
+            fab1.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
+            fab2.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
+            fab3.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
+            fab1.setClickable(false);
+            fab2.setClickable(false);
+            fab3.setClickable(false);
+            isFabEmotExtended = false;
+
+            emotFab.setImageDrawable(getDrawable(R.drawable.ic_emot_neutral));
+
+        } else {
+
+            fab1.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open));
+            fab2.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open));
+            fab3.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open));
+            fab1.setClickable(true);
+            fab2.setClickable(true);
+            fab3.setClickable(true);
+            isFabEmotExtended = true;
+
+            emotFab.setImageDrawable(getDrawable(R.drawable.ic_cross));
+
+
+        }
+    }
+
     CustomPopup customPopup;
+
+    View.OnClickListener fabClicklistener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            int id = v.getId();
+            switch (id){
+                case R.id.emot_fab:
+
+                    break;
+                case R.id.fab_emot1:
+
+                    break;
+                case R.id.fab_emot2:
+
+                    break;
+
+                case R.id.fab_emot3:
+                    break;
+
+            }
+
+            animateFab();
+        }
+    };
 
 
 
@@ -127,6 +193,11 @@ public class DrivingActivity extends AbstractActivity {
         ButterKnife.bind(this);
 
         chronometer.start();
+
+        emotFab.setOnClickListener(fabClicklistener);
+        fab1.setOnClickListener(fabClicklistener);
+        fab2.setOnClickListener(fabClicklistener);
+        fab3.setOnClickListener(fabClicklistener);
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH'h'mm");
 

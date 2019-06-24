@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface TechnicalService {
 
-    @GET("/mobithink/server/wakeup")
+    @GET("/mobithink/velo/server/wakeup")
     Call<Void> checkStatus();
 }

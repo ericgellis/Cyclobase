@@ -8,6 +8,6 @@ import retrofit2.http.POST;
 
 public interface TripService {
 
-    @POST("/mobithink/trip/create")
+    @POST("/trips")
     Call<Void> register(@Body TripDTO tripDTO);
 }

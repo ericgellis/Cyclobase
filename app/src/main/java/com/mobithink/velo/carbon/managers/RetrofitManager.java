@@ -39,7 +39,7 @@ public class RetrofitManager {
 
             if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-                interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
                 builder.addInterceptor(interceptor);
                 //baseURL = BuildConfig.SERVER_URL;
                 baseURL = BASE_URL;

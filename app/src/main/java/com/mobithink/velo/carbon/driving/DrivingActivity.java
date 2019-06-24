@@ -205,10 +205,6 @@ public class DrivingActivity extends AbstractActivity {
 
         tripId=CarbonApplicationManager.getInstance().getCurrentTripId();
 
-        EmojiCompat.Config config = new BundledEmojiCompatConfig(this)
-                .setEmojiSpanIndicatorEnabled(true);
-        EmojiCompat.init(config);
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(DrivingActivity.this);
 
@@ -276,7 +272,15 @@ public class DrivingActivity extends AbstractActivity {
         voieVerte.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                createEvent(getString(R.string.voie_verte), null, getString(R.string.event_type_amenagement));
+                if(voieVerte.isPressed()){
+                    voieVerte.setPressed(false);
+
+                    createEvent(getString(R.string.voie_verte), null, getString(R.string.event_type_amenagement));
+                }else{
+                    voieVerte.setPressed(true);
+                    createEvent(getString(R.string.voie_verte), null, getString(R.string.event_type_amenagement));
+                }
+
                 return true;
             }
         });

@@ -33,14 +33,14 @@
         android:required="true" />
 
     <application
-        android:name=".CarbonApplication"
+        android:name="com.mobithink.cyclobase.CyclobaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".splashscreen.ui.SplashScreenActivity"
+            android:name="com.mobithink.cyclobase.splashscreen.ui.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullTranslucent">
             <intent-filter>
@@ -62,17 +62,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.ui.HomeActivity"
+            android:name="com.mobithink.cyclobase.ui.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullTranslucent"/>
         <activity
-            android:name=".starter.ui.StarterActivity"
+            android:name="com.mobithink.cyclobase.starter.ui.StarterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullTranslucent"/>
         <activity
-            android:name=".preparation.ParametersActivity" />
+            android:name="com.mobithink.cyclobase.preparation.ParametersActivity" />
         <activity
-            android:name=".driving.DrivingActivity"
+            android:name="com.mobithink.cyclobase.driving.DrivingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullTranslucent"
             android:launchMode="singleTask"/>
@@ -90,7 +90,7 @@
             android:value="accd000571a33d94b07ab62a547bb2e298daf60d" />
 
         <service
-            android:name=".services.LocationService"
+            android:name="com.mobithink.cyclobase.services.LocationService"
             android:enabled="true"
             android:label="Carbon Location Service" />
 

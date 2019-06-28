@@ -22,7 +22,7 @@
     <string name="cancel_button">Annuler</string>
     <string name="action_generique">generique</string>
     <string name="event_type_amenagement">Amenagement</string>
-    <string name="evenement_cree">Evenement Créé</string>
+    <string name="evenement_cree">Evenement ajouté</string>
 
     <!--DrivingActivity Layout-->
     <string name="piste">Piste</string>
@@ -255,6 +255,11 @@
     <string name="start_time">Départ :</string>
     <string name="session">Session :</string>
     <string name="events">Evénements :</string>
+    <string name="warning_label4">Interruption</string>
+    <string name="warning_label3">Obstacle</string>
+    <string name="warning_label2">Mauvais état</string>
+    <string name="warning_label1">Carrefour dangereux</string>
+    <string name="even_type_incident">Incidents</string>
 
 
 </resources>

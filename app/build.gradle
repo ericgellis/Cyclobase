@@ -5,12 +5,12 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.mobithink.velo.carbon"
+        applicationId "com.mobithink.cyclobase"
         minSdkVersion 23
         targetSdkVersion 28
         resValue "string", "app_name", "CycloBase"
-        versionCode 3
-        versionName "0.3"
+        versionCode 4
+        versionName "0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
     }
@@ -18,10 +18,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", PROD_SERVER_URL
+            buildConfigField "String", "SERVER_URL", "\"https://mobithink-velo-server-v1.herokuapp.com/\""
         }
         debug {
-            buildConfigField "String", "SERVER_URL", DEV_SERVER_URL
+            buildConfigField "String", "SERVER_URL", "\"https://mobithink-velo-server-v1.herokuapp.com/\""
         }
     }
     compileOptions {

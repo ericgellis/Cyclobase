@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.mobithink.velo.carbon.driving.DrivingActivity">
+        tools:context="com.mobithink.cyclobase.driving.DrivingActivity">
 
         <include
             layout="@layout/driving_statistics_layout"
@@ -38,47 +38,114 @@
     </LinearLayout>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_emot3"
+    <LinearLayout
+        android:id="@+id/fab_warning4"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_floating_text"
+        android:visibility="invisible"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_marginBottom="300dp"
+        android:layout_gravity="bottom|end"
+        android:gravity="end"
+        android:layout_marginRight="@dimen/fab_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/warning_label4"
+            android:gravity="end"
+            android:textSize="@dimen/floating_text_size"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fab_warning3"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_floating_text"
+        android:visibility="invisible"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
         android:layout_marginBottom="230dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fab_margin"
+        android:gravity="end"
+        android:layout_marginRight="@dimen/fab_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/warning_label3"
+            android:gravity="end"
+            android:textSize="@dimen/floating_text_size"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/fab_warning2"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_floating_text"
         android:visibility="invisible"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        android:tint="@color/white"
-        android:src="@drawable/ic_emot_satisfied" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_emot2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:visibility="invisible"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        android:tint="@color/white"
-        android:src="@drawable/ic_emot_neutral" />
+        android:gravity="end"
+        android:layout_marginRight="@dimen/fab_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/warning_label2"
+            android:gravity="end"
+            android:textSize="@dimen/floating_text_size"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_emot1"
+
+    <LinearLayout
+        android:id="@+id/fab_warning1"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
-        android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fab_margin"
+        android:background="@drawable/bg_floating_text"
         android:visibility="invisible"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        android:tint="@color/white"
-        android:src="@drawable/ic_emot_dissatisfied" />
+        android:layout_marginBottom="90dp"
+        android:layout_gravity="bottom|end"
+        android:gravity="end"
+        android:layout_marginRight="@dimen/fab_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:gravity="end"
+            android:text="@string/warning_label1"
+            android:textSize="@dimen/floating_text_size"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/emot_fab"
+        android:id="@+id/warning_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -86,5 +153,5 @@
         app:pressedTranslationZ="12dp"
         android:layout_margin="@dimen/fab_margin"
         android:tint="@color/white"
-        android:src="@drawable/ic_emot_neutral"  />
+        android:src="@drawable/ic_warning"  />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

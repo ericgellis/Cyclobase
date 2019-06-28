@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <Button
+    <com.mobithink.cyclobase.ui.DrivingButton
         android:id="@+id/voie_partage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="@string/VOIE_PARTAGEE"
+        app:name="@string/VOIE_PARTAGEE"
         style="@style/DrivingButton"
         android:layout_weight="0.4"/>
 
@@ -24,51 +26,57 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="1">
-            <Button
+            <com.mobithink.cyclobase.ui.DrivingButton
                 android:id="@+id/bande"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/BANDE"
+                app:name="@string/BANDE"
                 android:layout_weight="1"
                 style="@style/DrivingButton" />
 
-            <Button
+            <com.mobithink.cyclobase.ui.DrivingButton
                 android:id="@+id/contresens"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/CONTRESENS"
+                app:name="@string/CONTRESENS"
                 android:layout_weight="0.8"
                 style="@style/DrivingButton" />
         </LinearLayout>
 
-        <Button
+        <com.mobithink.cyclobase.ui.DrivingButton
             android:id="@+id/couloir_bus"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
             style="@style/DrivingButton"
-            android:text="@string/COULOIR_BUS" />
+            android:text="@string/COULOIR_BUS"
+            app:name="@string/COULOIR_BUS"
+
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45"
             android:orientation="horizontal">
-            <Button
+            <com.mobithink.cyclobase.ui.DrivingButton
                 android:id="@+id/piste"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/PISTE"
+                app:name="@string/PISTE"
                 style="@style/DrivingButton" />
 
-            <Button
+            <com.mobithink.cyclobase.ui.DrivingButton
                 android:id="@+id/voie_verte"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 style="@style/DrivingButton"
                 android:layout_weight="0.8"
-                android:text="@string/VOIE_VERTE" />
-
+                android:text="@string/VOIE_VERTE"
+                app:name="@string/VOIE_VERTE" />
 
         </LinearLayout>
 

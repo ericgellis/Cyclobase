@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.mobithink.cyclobase.managers.RetrofitManager;
+import com.mobithink.cyclobase.starter.model.SignInPayload;
+import com.mobithink.cyclobase.webservices.TechnicalService;
+import com.mobithink.cyclobase.webservices.UserService;
 import com.mobithink.velo.carbon.R;
 import com.mobithink.cyclobase.core.ui.AbstractActivity;
 import com.mobithink.cyclobase.ui.HomeActivity;
@@ -21,6 +26,9 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class StarterActivity extends AbstractActivity  {
 
@@ -66,14 +74,39 @@ public class StarterActivity extends AbstractActivity  {
     private void signIn() {
 
         showProgressDialog();
-        new Handler().postDelayed(
+
+        UserService userService = RetrofitManager.build().create(UserService.class);
+
+        Call<Void> call = userService.signIn(new SignInPayload(loginEditText.getText().toString(), passwordEditText.getText().toString()));
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                switch (response.code()) {
+                    case 200:
+                        hideProgressDialog();
+                        startActivity(new Intent(StarterActivity.this, HomeActivity.class));
+                        break;
+                    default:
+                        hideProgressDialog();
+                        showError("Accès non authorisé");
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                hideProgressDialog();
+
+                showError("Fail");
+            }
+        });
+        /*new Handler().postDelayed(
                 new Runnable() {
                     @Override
                     public void run() {
-                        hideProgressDialog();
-                        startActivity(new Intent(StarterActivity.this, HomeActivity.class));
+
                     }
-                    }, 1500);
+                    }, 1500);*/
 
         //Todo fake
     }

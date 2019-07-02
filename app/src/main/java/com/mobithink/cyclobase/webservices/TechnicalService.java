@@ -2,6 +2,7 @@ package com.mobithink.cyclobase.webservices;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 /**
  * Created by jpaput on 10/02/2017.
@@ -9,6 +10,6 @@ import retrofit2.http.GET;
 
 public interface TechnicalService {
 
-    @GET("/mobithink/velo/server/wakeup")
+    @POST("/technical/wakeup")
     Call<Void> checkStatus();
 }

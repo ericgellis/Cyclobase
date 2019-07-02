@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
 
-    private static final String BASE_URL = "https://mobithink-velo-server-v1.herokuapp.com/";
+    private static final String BASE_URL = "https://cyclobase-backend-production.herokuapp.com/";
 
     private static final String SECURITY_TOKEN = "Basic ZXJpYzptb2JpMjAxN3RoaW5r";
 

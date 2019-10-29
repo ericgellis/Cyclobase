@@ -145,7 +145,7 @@ public class DrivingActivity extends AbstractActivity {
             fab1.setClickable(false);
             fab2.setClickable(false);
             fab3.setClickable(false);
-            fab4.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
+            fab4.setClickable(false);
 
             isFabEmotExtended = false;
 
@@ -225,6 +225,8 @@ public class DrivingActivity extends AbstractActivity {
         fab1.setOnClickListener(fabClicklistener);
         fab2.setOnClickListener(fabClicklistener);
         fab3.setOnClickListener(fabClicklistener);
+        fab4.setOnClickListener(fabClicklistener);
+
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH'h'mm");
 

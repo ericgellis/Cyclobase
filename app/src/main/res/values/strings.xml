@@ -35,7 +35,7 @@
 
     <!--Evenements-->
     <string name="voice_memo">voice memo</string>
-    <string name="probleme">Problemes</string>
+    <string name="probleme">Incidents</string>
     <string-array name="problemes_array">
         <item>obstacle</item>
         <item>carrefour dangereux</item>

@@ -1,5 +1,7 @@
 package com.mobithink.cyclobase.splashscreen.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import com.mobithink.cyclobase.core.ui.AbstractActivity;
 import com.mobithink.cyclobase.managers.RetrofitManager;
 import com.mobithink.cyclobase.starter.ui.StarterActivity;
 import com.mobithink.cyclobase.webservices.TechnicalService;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +65,6 @@ public class SplashScreenActivity extends AbstractActivity {
     protected void onResume() {
         super.onResume();
 
-
         Animation rotation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
         rotation.setRepeatCount(Animation.INFINITE);
 
@@ -101,6 +104,8 @@ public class SplashScreenActivity extends AbstractActivity {
                         serverCallsKO++;
                         if (serverCallsKO < SERVER_CALLS_LIMITE){
                             checkServerStatus();
+                        }else{
+                            showUnavailableServiceDialog(response.code());
                         }
                         break;
                 }
@@ -111,6 +116,17 @@ public class SplashScreenActivity extends AbstractActivity {
                 checkServerStatus();
             }
         });
+    }
+
+    private void showUnavailableServiceDialog(int code) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setTitle(getString(R.string.service_unavailable_title));
+        alertDialogBuilder.setMessage(String.format(getString(R.string.service_unavailable_message), code));
+        alertDialogBuilder.setPositiveButton(getString(R.string.leave), (dialog, which) ->finish());
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     private void startApplicationNormally() {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#00637c</color>
     <color name="colorPrimaryDark">#003950</color>
     <color name="colorAccent">#4548ff</color>
     <color name="trans">#00000000 </color>
@@ -17,7 +16,6 @@
     <color name="background_parameters_button">#FFFFFF</color>
 
     <!--Driving-->
-    <color name="fab_color">#009688</color>
     <color name="orange_button_event">#F57C00</color>
     <color name="color_event_crossroad">#926d27</color>
     <color name="white">#FFFFFF</color>

@@ -21,16 +21,7 @@
     <string name="ok_button">OK</string>
     <string name="cancel_button">Annuler</string>
     <string name="action_generique">generique</string>
-    <string name="event_type_amenagement">Amenagement</string>
     <string name="evenement_cree">Evenement ajouté</string>
-
-    <!--DrivingActivity Layout-->
-    <string name="piste">Piste</string>
-    <string name="bande">Bande</string>
-    <string name="voie_verte">Voie verte</string>
-    <string name="contresens_cyclable">Contresens cyclable</string>
-    <string name="voie_partagée">Voie partagée</string>
-    <string name="couloir_Bus">Couloir Bus</string>
 
 
     <!--Evenements-->
@@ -88,13 +79,7 @@
     <string name="Terminus">Terminus</string>
     <string name="current_speed">%1$s km/h</string>
 
-    <!--nom des boutons d'amenagement layout-->
-    <string name="PISTE">Piste</string>
-    <string name="BANDE">Bande</string>
-    <string name="VOIE_VERTE">Voie verte</string>
-    <string name="CONTRESENS">Contre sens</string>
-    <string name="VOIE_PARTAGEE">Voie partagée</string>
-    <string name="COULOIR_BUS">Couloir Bus</string>
+
 
     <!--nom des boutons de RESSENTI Angry layout-->
     <string name="agace">Agacé</string>
@@ -255,11 +240,11 @@
     <string name="start_time">Départ :</string>
     <string name="session">Session :</string>
     <string name="events">Evénements :</string>
-    <string name="warning_label4">Interruption</string>
-    <string name="warning_label3">Obstacle</string>
-    <string name="warning_label2">Mauvais état</string>
-    <string name="warning_label1">Carrefour dangereux</string>
+
     <string name="even_type_incident">Incidents</string>
+    <string name="service_unavailable_title">Services indisponibles</string>
+    <string name="service_unavailable_message">Les services Cyclobase sont actuellement indisponibles (code %d)</string>
+    <string name="leave">Quitter</string>
 
 
 </resources>

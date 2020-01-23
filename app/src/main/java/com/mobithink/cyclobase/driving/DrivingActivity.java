@@ -38,6 +38,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.mobithink.cyclobase.ui.FabWithTextView;
 import com.mobithink.cyclobase.database.DatabaseOpenHelper;
 import com.mobithink.cyclobase.ui.DrivingButton;
 import com.mobithink.velo.carbon.R;
@@ -54,6 +55,7 @@ import com.mobithink.cyclobase.webservices.TripService;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -75,6 +77,7 @@ public class DrivingActivity extends AbstractActivity {
     public static final int ENVOI_KO = 0;
     public static final int ENVOI_DECLINE=1;
     public static final int ENVOI_OK=2;
+    public static final int INTERVAL = 1000;
 
     private int serverCallsKO=0;
     private final int SERVER_CALLS_LIMITE=5;
@@ -101,18 +104,18 @@ public class DrivingActivity extends AbstractActivity {
     @BindView(R.id.finish_trip)
     ImageButton finishTripIb;
 
-    @BindView(R.id.voie_partage)
-    DrivingButton voiePartageBt;
-    @BindView(R.id.bande)
-    DrivingButton bandeBt;
-    @BindView(R.id.contresens)
-    DrivingButton contreSensBt;
-    @BindView(R.id.couloir_bus)
-    DrivingButton couloirBusBt;
-    @BindView(R.id.piste)
-    DrivingButton pisteBt;
-    @BindView(R.id.voie_verte)
-    DrivingButton voieVerte;
+    @BindView(R.id.driving_button1)
+    DrivingButton drivingButton1;
+    @BindView(R.id.driving_button2)
+    DrivingButton drivingButton2;
+    @BindView(R.id.driving_button3)
+    DrivingButton drivingButton3;
+    @BindView(R.id.driving_button4)
+    DrivingButton drivingButton4;
+    @BindView(R.id.driving_button5)
+    DrivingButton drivingButton5;
+    @BindView(R.id.driving_button6)
+    DrivingButton drivingButton6;
 
     @BindView(R.id.vocal)
     ImageButton vocalBt;
@@ -126,17 +129,22 @@ public class DrivingActivity extends AbstractActivity {
 
     @BindView(R.id.warning_fab)
     FloatingActionButton emotFab;
+
     @BindView(R.id.fab_warning1)
-    View fab1;
+    FabWithTextView fab1;
+
     @BindView(R.id.fab_warning2)
-    View fab2;
+    FabWithTextView fab2;
+
     @BindView(R.id.fab_warning3)
-    View fab3;
+    FabWithTextView fab3;
+
     @BindView(R.id.fab_warning4)
-    View fab4;
+    FabWithTextView fab4;
 
     private void animateFab() {
         if(isFabEmotExtended){
+
             fab1.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
             fab2.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
             fab3.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close));
@@ -182,23 +190,23 @@ public class DrivingActivity extends AbstractActivity {
                 break;
 
             case R.id.fab_warning1:
-                eventDTO = createEvent(getString(R.string.warning_label1), null, getString(R.string.even_type_incident));
-                eventInProgress.put(getString(R.string.warning_label1), eventDTO);
+                eventDTO = createEvent(fab1.getEvent(), null, getString(R.string.even_type_incident));
+                eventInProgress.put(fab1.getEvent(), eventDTO);
                 break;
 
             case R.id.fab_warning2:
-                eventDTO = createEvent(getString(R.string.warning_label2), null, getString(R.string.even_type_incident));
-                eventInProgress.put(getString(R.string.warning_label2), eventDTO);
+                eventDTO = createEvent(fab2.getEvent(), null, getString(R.string.even_type_incident));
+                eventInProgress.put(fab2.getEvent(), eventDTO);
                 break;
 
             case R.id.fab_warning3:
-                eventDTO = createEvent(getString(R.string.warning_label3), null, getString(R.string.even_type_incident));
-                eventInProgress.put(getString(R.string.warning_label3), eventDTO);
+                eventDTO = createEvent(fab3.getEvent(), null, getString(R.string.even_type_incident));
+                eventInProgress.put(fab3.getEvent(), eventDTO);
                 break;
 
             case R.id.fab_warning4:
-                eventDTO = createEvent(getString(R.string.warning_label4), null, getString(R.string.even_type_incident));
-                eventInProgress.put(getString(R.string.warning_label4), eventDTO);
+                eventDTO = createEvent(fab4.getEvent(), null, getString(R.string.even_type_incident));
+                eventInProgress.put(fab4.getEvent(), eventDTO);
                 break;
 
         }
@@ -222,6 +230,7 @@ public class DrivingActivity extends AbstractActivity {
         chronometer.start();
 
         emotFab.setOnClickListener(fabClicklistener);
+
         fab1.setOnClickListener(fabClicklistener);
         fab2.setOnClickListener(fabClicklistener);
         fab3.setOnClickListener(fabClicklistener);
@@ -270,8 +279,7 @@ public class DrivingActivity extends AbstractActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_LOCATION:
+        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
                 startLocationUpdates();
                 getLastKnownLocation();
         }
@@ -287,18 +295,17 @@ public class DrivingActivity extends AbstractActivity {
             return true;
         });
 
-        couloirBusBt.setOnLongClickListener(drivingButtonLongClicListener);
-        voieVerte.setOnLongClickListener(drivingButtonLongClicListener);
-        pisteBt.setOnLongClickListener(drivingButtonLongClicListener);
-        contreSensBt.setOnLongClickListener(drivingButtonLongClicListener);
-        bandeBt.setOnLongClickListener(drivingButtonLongClicListener);
-        voiePartageBt.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton4.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton6.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton5.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton3.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton2.setOnLongClickListener(drivingButtonLongClicListener);
+        drivingButton1.setOnLongClickListener(drivingButtonLongClicListener);
         finishTripIb.setOnLongClickListener(v -> {
             chronometer.stop();
             endTrip();
             return true;
         });
-
     }
 
 
@@ -319,7 +326,7 @@ public class DrivingActivity extends AbstractActivity {
         }else{
             v.setSelected(true);
 
-            EventDTO eventDTO = createEvent(name, null, getString(R.string.event_type_amenagement));
+            EventDTO eventDTO = createEvent(name, null, getString(R.string.event_type));
             eventInProgress.put(name, eventDTO);
         }
 
@@ -327,110 +334,24 @@ public class DrivingActivity extends AbstractActivity {
     };
 
 
-    /**
-     * Creation du menu emergent pour afficher les emojis
 
-    private void customPopupButonSetUp() {
-        customPopup.build();
-        EmojiButton paniqueButton = customPopup.getEmojiButton(R.id.panique);
-        StringBuffer stringBuffer = new StringBuffer(new String(Character.toChars(0x1F625	)));
-        Log.d("SB", stringBuffer.toString());
-        paniqueButton.setText(stringBuffer);
-        paniqueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emojiButtonClick(v.getId());
-            }
-        });
-
-        EmojiButton anxieuxButton = customPopup.getEmojiButton(R.id.anxieux);
-        stringBuffer = new StringBuffer(new String(Character.toChars(0x1F613	)));
-        Log.d("SB", stringBuffer.toString());
-        anxieuxButton.setText(stringBuffer);
-        anxieuxButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emojiButtonClick(v.getId());
-            }
-        });
-
-        EmojiButton agaceButton = customPopup.getEmojiButton(R.id.agace);
-        stringBuffer = new StringBuffer(new String(Character.toChars(0x1F623	)));
-        Log.d("SB", stringBuffer.toString());
-        agaceButton.setText(stringBuffer);
-        agaceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emojiButtonClick(v.getId());
-            }
-        });
-
-
-        EmojiButton deconcerteButton = customPopup.getEmojiButton(R.id.deconcerte);
-        stringBuffer = new StringBuffer(new String(Character.toChars(0x1F616	)));
-        Log.d("SB", stringBuffer.toString());
-        deconcerteButton.setText(stringBuffer);
-        deconcerteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emojiButtonClick(v.getId());
-            }
-        });
-    }
-
-    private void emojiButtonClick(int id) {
-        String emoji= null;
-        switch (id){
-            case R.id.panique:
-                emoji=getString(R.string.panique).toLowerCase();
-                break;
-            case R.id.anxieux:
-                emoji=getString(R.string.anxieux).toLowerCase();
-                break;
-
-            case R.id.agace:
-                emoji=getString(R.string.agace).toLowerCase();
-                break;
-
-            case R.id.deconcerte:
-                emoji=getString(R.string.deconcentre).toLowerCase();
-                break;
-
-             default:
-                 Log.e("error", "unsuported emoji");
-                 break;
-        }
-
-        if (emoji!=null){
-            createEvent(emoji, null, getString(R.string.ressenti));
-        }
-
-    }*/
 
     /**
      * Methode pour recuperer les listes de commands vocales
      */
     private void setUpListesEvenement() {
         listeProblemesEvenements= new ArrayList<>();
-        listeAmenagementEvenements = new ArrayList<>();
-        listeRessentiEvenements = new ArrayList<>();
-        String[] array;
-        //Récupération de la liste d’évènements prédéfinis du type probeleme
-        array = getResources().getStringArray(R.array.problemes_array);
-        for (String s : array){
-            listeProblemesEvenements.add(s);
-        }
-        //Récupération de la liste d’évènements prédéfinis du type amenagement
-        array = getResources().getStringArray(R.array.amenagement_array);
-        for (String s : array){
-            listeAmenagementEvenements.add(s);
-        }
+        listeProblemesEvenements.addAll(
+                Arrays.asList(getResources().getStringArray(R.array.problemes_array)));
 
-        //Récupération de la liste d’évènements prédéfinis du type ressenti
-        array = getResources().getStringArray(R.array.ressenti_array);
-        for (String s : array){
-            listeRessentiEvenements.add(s);
-        }
+        listeAmenagementEvenements = new ArrayList<>();
+        listeAmenagementEvenements.addAll(
+                Arrays.asList(getResources().getStringArray(R.array.amenagement_array)));
+
+        listeRessentiEvenements = new ArrayList<>();
+        listeRessentiEvenements.addAll(
+                Arrays.asList(getResources().getStringArray(R.array.ressenti_array)));
+
     }
 
     /**
@@ -452,16 +373,14 @@ public class DrivingActivity extends AbstractActivity {
         };
 
         mLocationRequest = LocationRequest.create();
-        mLocationRequest.setInterval(1000);
+        mLocationRequest.setInterval(INTERVAL);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case SPEACH_RECOGNITION_TAG:
-                traitementControlVocal(resultCode, data);
-                break;
+        if (requestCode == SPEACH_RECOGNITION_TAG) {
+            traitementControlVocal(resultCode, data);
         }
     }
 
@@ -577,21 +496,17 @@ public class DrivingActivity extends AbstractActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                switch (response.code()) {
-                    case 200:
-                        Log.d(this.getClass().getName(),getString(R.string.is_up));
-                        sendTripDto();
-                        break;
-                    default:
-                        //Control afin d'eviter un boucle infini si le serveurs est KO
-                        serverCallsKO++;
-                        if (serverCallsKO<SERVER_CALLS_LIMITE){
-                            checkServerStatus();
-                        }else {
-                            hideProgressDialog();
-                            returnToSplashScreenActivity(ENVOI_KO);
-                        }
-                        break;
+                if (response.code() == 200) {
+                    Log.d(this.getClass().getName(), getString(R.string.is_up));
+                    sendTripDto();
+                } else {//Control afin d'eviter un boucle infini si le serveurs est KO
+                    serverCallsKO++;
+                    if (serverCallsKO < SERVER_CALLS_LIMITE) {
+                        checkServerStatus();
+                    } else {
+                        hideProgressDialog();
+                        returnToSplashScreenActivity(ENVOI_KO);
+                    }
                 }
             }
 
@@ -613,19 +528,16 @@ public class DrivingActivity extends AbstractActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                switch (response.code()) {
-                    case 201:
-                        hideProgressDialog();
-                        setResult(RESULT_OK);
-                        DatabaseManager.getInstance().updateStatus(tripId,true);
-                        returnToSplashScreenActivity(ENVOI_OK);
-                        break;
-                    default:
-                        hideProgressDialog();
-                        Log.e(getString(R.string.send_trip),getString(R.string.response_serveur)+response.code());
-                        DatabaseManager.getInstance().updateStatus(tripId,false);
-                        returnToSplashScreenActivity(ENVOI_KO);
-                        break;
+                if (response.code() == 201) {
+                    hideProgressDialog();
+                    setResult(RESULT_OK);
+                    DatabaseManager.getInstance().updateStatus(tripId, true);
+                    returnToSplashScreenActivity(ENVOI_OK);
+                } else {
+                    hideProgressDialog();
+                    Log.e(getString(R.string.send_trip), getString(R.string.response_serveur) + response.code());
+                    DatabaseManager.getInstance().updateStatus(tripId, false);
+                    returnToSplashScreenActivity(ENVOI_KO);
                 }
             }
 
@@ -774,8 +686,6 @@ public class DrivingActivity extends AbstractActivity {
      * @param codeEnvoi int pour notifier quel message afficher a l'utilisateur dans l'activite princiaple
      */
     private void returnToSplashScreenActivity(int codeEnvoi){
-
-
         Intent returnIntent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putInt(CODE_ENVOI_TAG,codeEnvoi);

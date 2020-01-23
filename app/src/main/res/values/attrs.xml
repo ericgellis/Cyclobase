@@ -13,4 +13,8 @@
         <attr name="name" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="FabWithTextView">
+        <attr name="eventName" format="reference" />
+    </declare-styleable>
+
 </resources>

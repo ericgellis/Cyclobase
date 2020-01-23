@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="event_type">Amenagement</string>
+
+
+    <!--nom des boutons d'amenagement layout-->
+    <string name="item_label1">Voie verte</string>
+    <string name="item_label2">Piste cyclable unidirectionnelle</string>
+    <string name="item_label3">Piste cyclable bidirectionnelle</string>
+    <string name="item_label4">Bande cyclable</string>
+    <string name="item_label5">Trottoir partagé</string>
+    <string name="item_label6">Chemin, sentier</string>
+
+    <!-- evenement -->
+    <string name="warning_label4">Zone 30</string>
+    <string name="warning_label3">Zone de rencontre</string>
+    <string name="warning_label2">Double sens</string>
+    <string name="warning_label1">Couloir bus</string>
+
+    <string name="default_event_label">Inconnu</string>
+
+</resources>

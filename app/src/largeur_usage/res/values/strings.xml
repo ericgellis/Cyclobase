@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="declinaison">Largeur d\'usage</string>
+
+    <string name="event_type">Largeur d\'usage</string>
+
+    <!--nom des boutons d'amenagement layout-->
+    <string name="item_label1">Largeur moins de 1,25m</string>
+    <string name="item_label2">1,25 - 1,5m</string>
+    <string name="item_label3">1,5 - 2m</string>
+    <string name="item_label4">2 - 2,5m</string>
+    <string name="item_label5">2,5 - 3m</string>
+    <string name="item_label6">3 - 4m</string>
+
+    <!-- evenement -->
+    <string name="warning_label4">Points durs</string>
+    <string name="warning_label3">Fréquentation moyenne</string>
+    <string name="warning_label2">Fréquentation forte</string>
+    <string name="warning_label1">Conflit d\'usage</string>
+
+    <string name="default_event_label">Inconnu</string>
+
+</resources>

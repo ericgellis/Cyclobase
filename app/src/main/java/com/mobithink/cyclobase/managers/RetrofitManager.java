@@ -23,9 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
 
-    private static final String BASE_URL = "https://cyclobase-backend-production.herokuapp.com/";
-
     private static final String SECURITY_TOKEN = "Basic ZXJpYzptb2JpMjAxN3RoaW5r";
+
 
     static Retrofit mRetrofitInstance;
 
@@ -33,20 +32,15 @@ public class RetrofitManager {
     {
         if(mRetrofitInstance == null){
 
-            String baseURL;
-            //test
             OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
 
             if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
                 interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
                 builder.addInterceptor(interceptor);
-                //baseURL = BuildConfig.SERVER_URL;
-                baseURL = BASE_URL;
-            } else {
-                //baseURL = BuildConfig.SERVER_URL;
-                baseURL = BASE_URL;
             }
+
+
 
             builder.connectTimeout(60, TimeUnit.SECONDS);
             builder.readTimeout(60, TimeUnit.SECONDS);
@@ -74,7 +68,7 @@ public class RetrofitManager {
             }).create();
 
            mRetrofitInstance = new Retrofit.Builder()
-                    .baseUrl(baseURL)
+                    .baseUrl(BuildConfig.SERVER_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();

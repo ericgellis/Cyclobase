@@ -16,6 +16,9 @@ public class PreferenceManager {
     public static final String TIME_INTERVAL = "TIME_INTERVAL";
     public static final String COST_PRODUCTION = "COST_PRODUCTION";
 
+    public static final String USER_NAME = "USER_NAME";
+
+
     private static PreferenceManager mInstance;
 
     private SharedPreferences mGeneralPreference;
@@ -83,6 +86,17 @@ public class PreferenceManager {
     public int getCostOfProductionByKilometer(){
         return mGeneralPreference.getInt(COST_PRODUCTION, 1);
     }
+
+    public void setUserName(String userName){
+        SharedPreferences.Editor editor = mGeneralPreference.edit();
+        editor.putString(USER_NAME, userName);
+        editor.apply();
+    }
+
+    public String getUserName(){
+        return mGeneralPreference.getString(USER_NAME, "");
+    }
+
 
     public void clear(){
         mGeneralPreference.edit().clear().commit();

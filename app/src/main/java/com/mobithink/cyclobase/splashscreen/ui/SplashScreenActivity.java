@@ -12,11 +12,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobithink.cyclobase.core.service.EndPoint;
 import com.mobithink.velo.carbon.R;
 import com.mobithink.cyclobase.core.ui.AbstractActivity;
 import com.mobithink.cyclobase.managers.RetrofitManager;
 import com.mobithink.cyclobase.starter.ui.StarterActivity;
-import com.mobithink.cyclobase.webservices.TechnicalService;
 
 import java.util.List;
 
@@ -88,7 +88,7 @@ public class SplashScreenActivity extends AbstractActivity {
      * Verification de l'etat du serveur
      */
     private void checkServerStatus() {
-        TechnicalService technicalService = RetrofitManager.build().create(TechnicalService.class);
+        EndPoint technicalService = RetrofitManager.build().create(EndPoint.class);
 
         Call<Void> call = technicalService.checkStatus();
         call.enqueue(new Callback<Void>() {

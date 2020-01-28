@@ -5,19 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.util.Log;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.mobithink.cyclobase.core.service.EndPoint;
+import com.mobithink.cyclobase.managers.PreferenceManager;
 import com.mobithink.cyclobase.managers.RetrofitManager;
 import com.mobithink.cyclobase.starter.model.SignInPayload;
-import com.mobithink.cyclobase.webservices.TechnicalService;
-import com.mobithink.cyclobase.webservices.UserService;
 import com.mobithink.velo.carbon.R;
 import com.mobithink.cyclobase.core.ui.AbstractActivity;
 import com.mobithink.cyclobase.ui.HomeActivity;
@@ -42,8 +40,8 @@ public class StarterActivity extends AbstractActivity  {
     @BindView(R.id.password_textinputlayout)
     TextInputLayout passwordTextInputLayout;
 
-    @BindView(R.id.login_edittext)
-    EditText loginEditText;
+    @BindView(R.id.username_edittext)
+    EditText userNameEditText;
 
     @BindView(R.id.password_edittext)
     EditText passwordEditText;
@@ -76,15 +74,16 @@ public class StarterActivity extends AbstractActivity  {
 
         showProgressDialog();
 
-        UserService userService = RetrofitManager.build().create(UserService.class);
+        EndPoint userService = RetrofitManager.build().create(EndPoint.class);
 
-        Call<Void> call = userService.signIn(new SignInPayload(loginEditText.getText().toString(), passwordEditText.getText().toString()));
+        Call<Void> call = userService.signIn(new SignInPayload(userNameEditText.getText().toString(), passwordEditText.getText().toString()));
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()) {
                     case 200:
                         hideProgressDialog();
+                        PreferenceManager.getInstance().setUserName(userNameEditText.getText().toString());
                         startActivity(new Intent(StarterActivity.this, HomeActivity.class));
                         break;
                     case 503:
@@ -117,18 +116,20 @@ public class StarterActivity extends AbstractActivity  {
         ButterKnife.bind(this);
         setDarkStatusIcon();
 
+        userNameEditText.setText(PreferenceManager.getInstance().getUserName());
+
     }
 
 
     private void clearHighlightErrors() {
-        loginEditText.setError(null);
+        userNameEditText.setError(null);
         passwordEditText.setError(null);
     }
 
     private void highlightError(int errorCode) {
         switch (errorCode) {
             case ERROR_EMPTY_LOGIN:
-                loginEditText.setError(getString(R.string.mandatory_field_message));
+                userNameEditText.setError(getString(R.string.mandatory_field_message));
                 break;
             case ERROR_EMPTY_PASSWORD:
                 passwordEditText.setError(getString(R.string.mandatory_field_message));
@@ -137,7 +138,7 @@ public class StarterActivity extends AbstractActivity  {
     }
 
     private int controlField() {
-        if (loginEditText.getText().length() == 0) {
+        if (userNameEditText.getText().length() == 0) {
             return ERROR_EMPTY_LOGIN;
         }
 

@@ -2,17 +2,17 @@ package com.mobithink.cyclobase.starter.model;
 
 public class SignInPayload {
 
-    public SignInPayload(String login, String password) {
-        this.login = login;
+    public SignInPayload(String userName, String password) {
+        this.userName = userName;
         this.password = password;
     }
 
-    public String login;
+    public String userName;
 
     public String password;
 
-    public void setLogin(String login){
-        this.login = login;
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 
     public void setPassword(String password) {

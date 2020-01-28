@@ -38,6 +38,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.mobithink.cyclobase.core.service.EndPoint;
 import com.mobithink.cyclobase.ui.FabWithTextView;
 import com.mobithink.cyclobase.database.DatabaseOpenHelper;
 import com.mobithink.cyclobase.ui.DrivingButton;
@@ -50,8 +51,7 @@ import com.mobithink.cyclobase.managers.DatabaseManager;
 import com.mobithink.cyclobase.managers.RetrofitManager;
 import com.mobithink.cyclobase.services.LocationService;
 import com.mobithink.cyclobase.utils.CustomPopup;
-import com.mobithink.cyclobase.webservices.TechnicalService;
-import com.mobithink.cyclobase.webservices.TripService;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -490,7 +490,7 @@ public class DrivingActivity extends AbstractActivity {
      * Verification de l'etat du serveur
      */
     private void checkServerStatus() {
-        TechnicalService technicalService = RetrofitManager.build().create(TechnicalService.class);
+        EndPoint technicalService = RetrofitManager.build().create(EndPoint.class);
 
         Call<Void> call = technicalService.checkStatus();
         call.enqueue(new Callback<Void>() {
@@ -521,9 +521,9 @@ public class DrivingActivity extends AbstractActivity {
 
         TripDTO tripDto = DatabaseManager.getInstance().getFullTripDTODataToSend(tripId);
 
-        TripService tripService = RetrofitManager.build().create(TripService.class);
+        EndPoint tripService = RetrofitManager.build().create(EndPoint.class);
 
-        Call<Void> call = tripService.register(tripDto);
+        Call<Void> call = tripService.registerTrip(tripDto);
 
         call.enqueue(new Callback<Void>() {
             @Override

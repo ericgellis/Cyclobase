@@ -475,7 +475,8 @@ public class DrivingActivity extends AbstractActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 DatabaseManager.getInstance().updateStatus(tripId,false);
-                returnToSplashScreenActivity(ENVOI_DECLINE);
+                setResult(RESULT_CANCELED);
+                finish();
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -505,7 +506,7 @@ public class DrivingActivity extends AbstractActivity {
                         checkServerStatus();
                     } else {
                         hideProgressDialog();
-                        returnToSplashScreenActivity(ENVOI_KO);
+                        showError(getString(R.string.service_unavailable));
                     }
                 }
             }
@@ -528,16 +529,16 @@ public class DrivingActivity extends AbstractActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.code() == 201) {
+                if (response.code() == 200) {
                     hideProgressDialog();
-                    setResult(RESULT_OK);
                     DatabaseManager.getInstance().updateStatus(tripId, true);
-                    returnToSplashScreenActivity(ENVOI_OK);
+                    setResult(RESULT_OK);
+                    finish();
                 } else {
                     hideProgressDialog();
                     Log.e(getString(R.string.send_trip), getString(R.string.response_serveur) + response.code());
                     DatabaseManager.getInstance().updateStatus(tripId, false);
-                    returnToSplashScreenActivity(ENVOI_KO);
+                    showError(getString(R.string.Error_sync_trip));
                 }
             }
 
@@ -677,22 +678,5 @@ public class DrivingActivity extends AbstractActivity {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
 
-    /**
-     * Méthode pour revenir à l’activité principale.
-     * Code envoi correspond aux valeurs suivants
-     * Erreur Transmition
-     * Envoi Decline par l’utilisatuer
-     * Enovi Correcte
-     * @param codeEnvoi int pour notifier quel message afficher a l'utilisateur dans l'activite princiaple
-     */
-    private void returnToSplashScreenActivity(int codeEnvoi){
-        Intent returnIntent = new Intent();
-        Bundle bundle = new Bundle();
-        bundle.putInt(CODE_ENVOI_TAG,codeEnvoi);
-        returnIntent.putExtras(bundle);
 
-        setResult(Activity.RESULT_OK,returnIntent);
-        finish();
-
-    }
 }

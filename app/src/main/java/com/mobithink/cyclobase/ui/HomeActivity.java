@@ -122,11 +122,7 @@ public class HomeActivity extends AbstractActivity {
                 break;
             case ANALYSE_LINE_ACTION:
                 if (resultCode == Activity.RESULT_OK) {
-                    if (data.getExtras()!=null && data.hasExtra(CODE_ENVOI_TAG)){
-                        showSuccessDialog(getString(R.string.trajet_sauvegarde));
-                    }else {
-                        showError(getString(R.string.error_occurred));
-                    }
+                    showSuccessDialog(getString(R.string.trajet_synchronisé));
                 }
                 if (resultCode == Activity.RESULT_CANCELED) {
                     showError(getString(R.string.trajet_anule));

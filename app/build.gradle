@@ -20,10 +20,10 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.mobithink.cyclobase"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 28
-        versionCode 9
-        versionName "0.6.1"
+        versionCode 10
+        versionName "0.6.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
 
@@ -37,8 +37,8 @@ android {
             buildConfigField "String", "SERVER_URL", "\"https://cyclobase-backend-production.herokuapp.com\""
         }
         debug {
-            //buildConfigField "String", "SERVER_URL", "\"https://cyclobase-backend-staging.herokuapp.com\""
-            buildConfigField "String", "SERVER_URL", "\"https://cyclobase-backend-production.herokuapp.com\""
+            buildConfigField "String", "SERVER_URL", "\"https://cyclobase-backend-staging.herokuapp.com\""
+            //buildConfigField "String", "SERVER_URL", "\"https://cyclobase-backend-production.herokuapp.com\""
         }
     }
     compileOptions {

@@ -14,10 +14,5 @@
         app:showAsAction="withText"
         android:title="@string/envoyer_donnes">
     </item-->
-    <item
-        android:id="@+id/general_settings"
-        android:icon="@drawable/ic_settings_white_24dp"
-        app:showAsAction="always"
-        android:title="@string/parameters">
-    </item>
+
 </menu>

@@ -1,7 +1,6 @@
 package com.mobithink.cyclobase.driving;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -50,12 +49,10 @@ import com.mobithink.cyclobase.managers.CarbonApplicationManager;
 import com.mobithink.cyclobase.managers.DatabaseManager;
 import com.mobithink.cyclobase.managers.RetrofitManager;
 import com.mobithink.cyclobase.services.LocationService;
-import com.mobithink.cyclobase.utils.CustomPopup;
 
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -90,7 +87,6 @@ public class DrivingActivity extends AbstractActivity {
 
     private ArrayList<String> listeProblemesEvenements;
     private ArrayList<String> listeAmenagementEvenements;
-    private ArrayList<String> listeRessentiEvenements;
 
     private HashMap<String, EventDTO> eventInProgress = new HashMap<>();
 
@@ -174,12 +170,8 @@ public class DrivingActivity extends AbstractActivity {
             isFabEmotExtended = true;
 
             emotFab.setImageDrawable(getDrawable(R.drawable.ic_cross));
-
-
         }
     }
-
-    CustomPopup customPopup;
 
     View.OnClickListener fabClicklistener = v -> {
 
@@ -246,8 +238,6 @@ public class DrivingActivity extends AbstractActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(DrivingActivity.this);
 
-
-        customPopup = new CustomPopup(this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -341,16 +331,20 @@ public class DrivingActivity extends AbstractActivity {
      */
     private void setUpListesEvenement() {
         listeProblemesEvenements= new ArrayList<>();
-        listeProblemesEvenements.addAll(
-                Arrays.asList(getResources().getStringArray(R.array.problemes_array)));
+
+        listeProblemesEvenements.add(getResources().getString(R.string.warning_label1).toLowerCase());
+        listeProblemesEvenements.add(getResources().getString(R.string.warning_label2).toLowerCase());
+        listeProblemesEvenements.add(getResources().getString(R.string.warning_label3).toLowerCase());
+        listeProblemesEvenements.add(getResources().getString(R.string.warning_label4).toLowerCase());
+
 
         listeAmenagementEvenements = new ArrayList<>();
-        listeAmenagementEvenements.addAll(
-                Arrays.asList(getResources().getStringArray(R.array.amenagement_array)));
-
-        listeRessentiEvenements = new ArrayList<>();
-        listeRessentiEvenements.addAll(
-                Arrays.asList(getResources().getStringArray(R.array.ressenti_array)));
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label1).toLowerCase());
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label2).toLowerCase());
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label3).toLowerCase());
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label4).toLowerCase());
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label5).toLowerCase());
+        listeAmenagementEvenements.add(getResources().getString(R.string.item_label6).toLowerCase());
 
     }
 
@@ -585,13 +579,7 @@ public class DrivingActivity extends AbstractActivity {
                 //si c'est une action prédéfini du type amenagement
                 createEvent(commandeVocale,
                         null,
-                        getString(R.string.amenagement));
-            }
-            else if(listeRessentiEvenements.contains(commandeVocale)){
-                //si c'est une action prédéfini du type Ressenti
-                createEvent(commandeVocale,
-                        null,
-                        getString(R.string.ressenti));
+                        getString(R.string.event_type));
             }
             else {
                 //Sinon, on cree un evenenemnt generique pour ajouter une voice memo

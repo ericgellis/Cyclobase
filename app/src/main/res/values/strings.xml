@@ -27,65 +27,8 @@
     <!--Evenements-->
     <string name="voice_memo">voice memo</string>
     <string name="probleme">Incidents</string>
-    <string-array name="problemes_array">
-        <item>obstacle</item>
-        <item>carrefour dangereux</item>
-        <item>interruption</item>
-        <item>mauvais état</item>
-    </string-array>
-
-    <string name="amenagement">Amenagement</string>
-    <string-array name="amenagement_array">
-        <item>piste</item>
-        <item>bande</item>
-        <item>voie verte</item>
-        <item>contresens cyclable</item>
-        <item>voie partagée</item>
-        <item>couloir Bus</item>
-    </string-array>
-
-    <string name="ressenti">Ressenti</string>
-    <string-array name="ressenti_array">
-        <item>comfortable</item>
-        <item>en confiance</item>
-        <item>déconcerté</item>
-        <item>agacé</item>
-        <item>anxieux</item>
-        <item>paniqué</item>
-    </string-array>
 
 
-    <!--choice_line_from_analyze-->
-    <string name="cityName">Ville</string>
-    <string name="lineName">Ligne</string>
-    <string name="directionName">Direction</string>
-    <string name="vehicleCapacity">Capacité du véhicule</string>
-    <string name="start">Démarrer</string>
-
-    <!--new_line-->
-    <string name="departureStation" tools:ignore="UnusedResources">Station de départ</string>
-    <string name="addStation">Ajouter une station</string>
-    <string name="interurban">Interurbain</string>
-    <string name="create">Créer</string>
-
-    <!--Driving-->
-    <string name="nextStation">Prochaine station</string>
-    <string name="event" tools:ignore="UnusedResources">Evènement</string>
-    <string name="course">Parcours :</string>
-    <string name="section">Tronçon :</string>
-    <string name="dir">dir.</string>
-    <string name="indriving">En section courante</string>
-    <string name="in_crossroad">Au carrefour</string>
-    <string name="Terminus">Terminus</string>
-    <string name="current_speed">%1$s km/h</string>
-
-
-
-    <!--nom des boutons de RESSENTI Angry layout-->
-    <string name="agace">Agacé</string>
-    <string name="deconcentre">Déconcerté</string>
-    <string name="anxieux">Anxieux</string>
-    <string name="panique">Paniqué</string>
 
 
     <string-array name="condition_codes_icons">
@@ -140,62 +83,6 @@
         <item>&#xF07B;</item>
     </string-array>
 
-    <!--StationActivity-->
-    <string name="boarding">Montée</string>
-    <string name="exit">Descente</string>
-    <string name="cancellation">Annulation</string>
-    <string name="running" tools:ignore="UnusedResources">en cours</string>
-
-    <!--parameters-->
-    <string name="parameters">Paramètres</string>
-    <string name="frequency">Fréquence relevée en roulage (en sec) : </string>
-    <string name="radius">Rayon de couverture des stations (en m) : </string>
-    <string name="cost_production_by_minut"> Coût de production à la minute (en euro/min) : </string>
-    <string name="cost_production_by_kilometer">Coût de production au kilomètre (en euro/km) : </string>
-    <string name="register">Enregistrer</string>
-
-    <!--choice_line_from_consult-->
-    <string name="recorded">Saisie du</string>
-
-    <!-- provision_tab1-->
-    <string name="interstation" tools:ignore="UnusedResources">Interstations</string>
-    <string name="current_performance">Performance actuelle</string>
-    <string name="marge_performance">Marge de performance</string>
-    <string name="saving">Gain :</string>
-
-    <!-- speed_tab2-->
-    <string name="speed">Vitesse</string>
-
-    <!--event_tab3-->
-    <string name="total_trip">Parcours total</string>
-    <string name="event_in_actual_section">Evènement section courante</string>
-    <string name="event_crossroad">Evènement carrefours</string>
-    <string name="event_in_station">Evènement stations</string>
-    <string name="total_trip_time">Temps de parcours total :</string>
-    <string name="average_speed">Vitesse moyenne :</string>
-    <string name="decomposition">Décomposition :</string>
-    <string name="loss_total_time">Perte de temps total : </string>
-    <string name="saving_possible_time">Gain de temps envisageable :</string>
-    <string name="saving_in_euro">Gain en euro : </string>
-    <string name="number_of_events">Nombre d\'évènements :</string>
-    <string name="total_time_events">Temps cumulé des évènements :</string>
-    <string name="load">Poids (% par rapport au temps réel du parcours) :</string>
-    <string name="type_event">Type d\'évènements :</string>
-    <string name="time">Temps :</string>
-    <string name="retranscription_voice_memo">Retranscription mémo vocal : </string>
-    <string name="impact_bus_performance">Impacts sur les performances du bus :</string>
-    <string name="layout_to_favor">Aménagements à privilégier :</string>
-    <string name="in_driving">En roulage </string>
-    <string name="in_station">En station </string>
-    <string name="impact">Impact :</string>
-
-    <!--capacity_tab4-->
-    <string name="capacity">Charge</string>
-    <string name="capacities">Capacité :</string>
-    <string name="max">max :</string>
-    <string name="average">moy :</string>
-    <string name="min">min :</string>
-    <string name="capacityless50">Part du trajet où la charge est inférieure à 50%</string>
 
     <!--summary-tab5-->
     <string name="enteringData">Saisi le</string>

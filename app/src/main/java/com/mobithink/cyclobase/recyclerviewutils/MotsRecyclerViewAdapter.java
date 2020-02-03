@@ -22,8 +22,7 @@ public class MotsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         context=c;
         labelList= new ArrayList<>();
         labelList.add(c.getString(R.string.probleme));
-        labelList.add(c.getString(R.string.amenagement));
-        labelList.add(c.getString(R.string.ressenti));
+        labelList.add(c.getString(R.string.event_type));
     }
 
     @NonNull

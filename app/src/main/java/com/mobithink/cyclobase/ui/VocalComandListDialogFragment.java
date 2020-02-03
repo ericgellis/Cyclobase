@@ -57,25 +57,23 @@ public class VocalComandListDialogFragment extends DialogFragment {
 
     private ArrayList<String> getListMots() {
         ArrayList<String>list= new ArrayList<>();
-        String[] array;
+
         list.add(getString(R.string.probleme));
-        //Récupération de la liste d’évènements prédéfinis du type probeleme
-        array = getResources().getStringArray(R.array.problemes_array);
-        for (String s : array){
-            list.add(s);
-        }
-        list.add(getString(R.string.amenagement));
-        //Récupération de la liste d’évènements prédéfinis du type amenagement
-        array = getResources().getStringArray(R.array.amenagement_array);
-        for (String s : array){
-            list.add(s);
-        }
-        list.add(getString(R.string.ressenti));
-        //Récupération de la liste d’évènements prédéfinis du type ressenti
-        array = getResources().getStringArray(R.array.ressenti_array);
-        for (String s : array){
-            list.add(s);
-        }
+        list.add(getResources().getString(R.string.warning_label1));
+        list.add(getResources().getString(R.string.warning_label2));
+        list.add(getResources().getString(R.string.warning_label3));
+        list.add(getResources().getString(R.string.warning_label4));
+
+
+        list.add(getString(R.string.event_type));
+        list.add(getResources().getString(R.string.item_label1));
+        list.add(getResources().getString(R.string.item_label2));
+        list.add(getResources().getString(R.string.item_label3));
+        list.add(getResources().getString(R.string.item_label4));
+        list.add(getResources().getString(R.string.item_label5));
+        list.add(getResources().getString(R.string.item_label6));
+
+
 
         return list;
     }

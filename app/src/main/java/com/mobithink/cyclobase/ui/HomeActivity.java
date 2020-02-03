@@ -19,14 +19,11 @@ import com.mobithink.cyclobase.database.model.TripDTO;
 import com.mobithink.cyclobase.driving.DrivingActivity;
 import com.mobithink.cyclobase.managers.CarbonApplicationManager;
 import com.mobithink.cyclobase.managers.DatabaseManager;
-import com.mobithink.cyclobase.preparation.ParametersActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.fabric.sdk.android.Fabric;
-
-import static com.mobithink.cyclobase.driving.DrivingActivity.CODE_ENVOI_TAG;
 
 /**
  * MobiThink Velo
@@ -103,13 +100,7 @@ public class HomeActivity extends AbstractActivity {
         this.startActivityForResult(startDriving, ANALYSE_LINE_ACTION);
     }
 
-    /**
-     * Lancer l'ativite du parametrage
-     */
-    public void launchParametersActivity() {
-        Intent chooseParameters = new Intent(this, ParametersActivity.class);
-        this.startActivityForResult(chooseParameters, CHANGE_PARAMETER_ACTION);
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

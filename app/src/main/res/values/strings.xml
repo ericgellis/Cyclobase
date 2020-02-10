@@ -136,4 +136,5 @@
     <string name="service_unavailable">Les services cyclobase sont indisponibles pour le moment</string>
 
 
+    <string name="event_type">Amenagement</string>
 </resources>

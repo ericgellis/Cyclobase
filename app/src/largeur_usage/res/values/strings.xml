@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="declinaison">Largeur d\'usage</string>
-
-    <string name="event_type">Largeur d\'usage</string>
-
     <!--nom des boutons d'amenagement layout-->
     <string name="item_label1">Largeur moins de 1,25m</string>
     <string name="item_label2">1,25 - 1,5m</string>

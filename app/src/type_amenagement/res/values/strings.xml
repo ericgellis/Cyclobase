@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="event_type">Amenagement</string>
-
-
     <!--nom des boutons d'amenagement layout-->
     <string name="item_label1">Voie verte</string>
     <string name="item_label2">Piste cyclable unidirectionnelle</string>
